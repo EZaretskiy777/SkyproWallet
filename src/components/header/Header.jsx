@@ -14,9 +14,9 @@ const Header = () => {
             <S.HeaderLink to="/newcard">Мои расходы</S.HeaderLink>
             <S.HeaderLink to="/newcard">Анализ расходов</S.HeaderLink>
           </S.HeaderNav>
-          <S.HeaderUserBtn onMouseDown={(e) => e.stopPropagation()}>
+          <S.HeaderBtn onMouseDown={(e) => e.stopPropagation()}>
             Выйти
-          </S.HeaderUserBtn>
+          </S.HeaderBtn>
         </S.HeaderBlock>
       </S.HeaderContainer>
     </S.Header>

@@ -43,6 +43,8 @@ export const HeaderLink = styled(Link)`
 `;
 
 export const HeaderLogoImg = styled.img`
+  display: flex;
+  align-items: center;
   height: 19px;
 `;
 
@@ -54,43 +56,13 @@ export const HeaderNav = styled.nav`
   gap: 48px;
 `;
 
-export const HeaderBtnMainNew = styled.button`
-  width: 178px;
-  height: 30px;
-  border-radius: 4px;
-  background-color: #565eef;
-  color: #ffffff;
-  border: none;
+export const HeaderBtn = styled.button`
+  font-family: Montserrat;
+  font-weight: 600;
   font-size: 14px;
-  line-height: 1;
-  font-weight: 500;
-  margin-right: 20px;
-
-  &:hover {
-    background-color: #33399b;
-  }
-
-  @media screen and (max-width: 495px) {
-    z-index: 3;
-    position: fixed;
-    left: 16px;
-    bottom: 30px;
-    top: auto;
-    width: calc(100vw - 32px);
-    height: 40px;
-    border-radius: 4px;
-    margin-right: 0;
-  }
-`;
-
-export const HeaderUserBtn = styled.button`
-  height: 20px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  line-height: 20px;
+  line-height: 170%;
+  letter-spacing: 0px;
+  text-align: center;
   border: none;
   background: transparent;
 
