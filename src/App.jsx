@@ -1,10 +1,11 @@
 import { GlobalStyles } from "./globalStyles";
+import AppRoutes from "./AppRoutes";
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <h1>Привет</h1>
+      <AppRoutes />
     </>
   );
 }
