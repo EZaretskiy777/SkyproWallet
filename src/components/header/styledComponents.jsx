@@ -9,7 +9,6 @@ export const Header = styled.header`
 export const HeaderContainer = styled.div`
   width: 100%;
   margin: 0 auto;
-  padding: 0 30px;
 
   @media screen and (max-width: 495px) {
     width: 100%;
@@ -26,7 +25,6 @@ export const HeaderBlock = styled.div`
   position: relative;
   top: 0;
   left: 0;
-  padding: 0 10px;
 `;
 
 export const HeaderLogo = styled.div``;
