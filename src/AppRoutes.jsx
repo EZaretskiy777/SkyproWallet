@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router";
-import Header from "./components/Header/Header";
+import ExpensesAnalys from "./pages/ExpensesAnalys/ExpensesAnalys";
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Header />} />
+        <Route path="/" element={<h1>Заглушка</h1>} />
+        <Route path="/expensesanalys" element={<ExpensesAnalys />} />
       </Routes>
     </BrowserRouter>
   );
