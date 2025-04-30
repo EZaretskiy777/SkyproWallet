@@ -162,13 +162,10 @@ export const MonthButton = styled.button`
   }
 `;
 
-export const MonthYearTitle = styled.div`
-font-family: "Montserrat",
-font-weight: "600",
-font-size: "16px",
-line-height: "100%",
-letter-spacing: "0px",
-margin: "8px 0",
+export const MonthYearTitle = styled.text`
+  font-size: 16px;
+  font-weight: 600;
+  fill: #1a1a1a;
 `;
 
 export const MonthYear = styled.div`

@@ -33,7 +33,7 @@ export const HeaderLogo = styled.div``;
 export const HeaderLink = styled(NavLink)`
   text-decoration: ${(props) => (props.$isActive ? "underline" : "none")};
   font-family: Montserrat;
-  font-weight: 400;
+  font-weight: ${(props) => (props.$isActive ? "600" : "400")};
   font-size: 14px;
   line-height: 170%;
   letter-spacing: 0px;

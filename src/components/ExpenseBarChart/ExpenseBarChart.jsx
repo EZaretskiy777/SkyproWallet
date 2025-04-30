@@ -28,17 +28,6 @@ const COLORS = [
   "#FFB9B8",
 ];
 
-const CustomTooltip = ({ active, payload }) => {
-  if (active && payload && payload.length) {
-    return (
-      <S.StyledTooltipWrapper>
-        <S.TooltipItem>{`${payload[0].value.toLocaleString()} ₽`}</S.TooltipItem>
-      </S.StyledTooltipWrapper>
-    );
-  }
-  return null;
-};
-
 const ExpenseBarChart = () => {
   const total = testData.reduce((sum, item) => sum + item.amount, 0);
   const barWidth = 94;
@@ -48,7 +37,7 @@ const ExpenseBarChart = () => {
   return (
     <S.Container>
       <S.Header>
-        <S.TotalAmount>{total.toLocaleString()} ₽</S.TotalAmount>
+        <S.TotalAmount>{total.toLocaleString("ru-RU")} ₽</S.TotalAmount>
         <S.Period>Расходы за 29 июня 2024 — 4 августа 2024</S.Period>
       </S.Header>
 
@@ -67,10 +56,6 @@ const ExpenseBarChart = () => {
             tickLine={false}
           />
           <YAxis hide />
-          {/* <Tooltip
-            content={<CustomTooltip />}
-            cursor={{ fill: "transparent" }}
-          /> */}
           <Bar
             dataKey="amount"
             radius={[10, 10, 10, 10]}
@@ -94,7 +79,7 @@ const ExpenseBarChart = () => {
                     y={y + offset}
                     textAnchor="middle"
                   >
-                    {`${value.toLocaleString()} ₽`}
+                    {`${value.toLocaleString("ru-RU")} ₽`}
                   </S.StyledLabel>
                 );
               }}
