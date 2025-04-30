@@ -4,7 +4,7 @@ export const Container = styled.div`
   height: 540px;
   width: 800px;
   max-width: 800px;
-  padding: 40px 30px;
+  padding: 20px;
   background: #ffffff;
   border-radius: 30px;
   box-shadow: 0 20px 67px -12px rgba(0, 0, 0, 0.13);
@@ -13,7 +13,7 @@ export const Container = styled.div`
 export const Header = styled.div`
   text-align: left;
   margin-bottom: 30px;
-  margin-left: 40px;
+  margin-left: 32px;
 `;
 
 export const TotalAmount = styled.h1`
@@ -29,7 +29,7 @@ export const TotalAmount = styled.h1`
 
 export const Period = styled.p`
   color: #888888;
-  margin-top: 8px;
+  margin-top: 12px;
   font-family: Montserrat;
   font-weight: 400;
   font-size: 12px;
@@ -59,6 +59,4 @@ export const TooltipItem = styled.p`
   font-weight: 500;
 `;
 
-export const Wrapper = styled.div`
-  padding-bottom: 10px;
-`;
+export const Wrapper = styled.div``;

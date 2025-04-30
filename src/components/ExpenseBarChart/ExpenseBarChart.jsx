@@ -44,7 +44,7 @@ const ExpenseBarChart = () => {
       <S.Wrapper>
         <BarChart
           width={chartWidth}
-          height={380}
+          height={420}
           data={testData}
           margin={{ top: 40, right: 20, left: 20, bottom: 0 }}
           barCategoryGap={barGap}
