@@ -66,7 +66,7 @@ export const ModeButton = styled.button`
   transition: all 0.2s;
   white-space: nowrap;
   text-decoration: ${({ active }) => (active ? "underline" : "none")};
-  text-underline-offset: 10px;
+  text-underline-offset: 5px;
   font-family: Montserrat;
   font-weight: 600;
   font-size: 12px;
@@ -98,17 +98,17 @@ export const DateButton = styled.button`
   width: 40px;
   height: 40px;
   border: none;
-  border-radius: ${({ isInRange }) => (isInRange ? "8px" : "50%")};
+  border-radius: 50%;
   background: ${({ isSelected, isInRange, isToday }) =>
     isSelected
-      ? "#90ee90"
+      ? "#DBFFE9"
       : isInRange
-      ? "#e0f7e9"
+      ? "#DBFFE9"
       : isToday
       ? "#e0f7e9"
       : "#F4F5F6"};
-  color: ${({ isSelected }) => (isSelected ? "#000" : "#333")};
-  font-weight: ${({ isSelected }) => (isSelected ? "bold" : "normal")};
+  color: #333;
+  font-weight: normal;
   cursor: pointer;
   transition: background 0.2s, transform 0.1s;
   &:hover {
@@ -151,7 +151,7 @@ export const MonthButton = styled.button`
   border-radius: 8px;
   border: none;
   background: ${({ isSelected, isInRange }) =>
-    isSelected ? "#90ee90" : isInRange ? "#e0f7e9" : "#f7f7f7"};
+    isSelected ? "#DBFFE9" : isInRange ? "#DBFFE9" : "#f7f7f7"};
   color: #333;
   cursor: pointer;
   transition: background 0.2s, transform 0.1s;

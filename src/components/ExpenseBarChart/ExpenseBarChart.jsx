@@ -7,7 +7,6 @@ import {
   YAxis,
   Tooltip,
   LabelList,
-  ResponsiveContainer,
   Cell,
 } from "recharts";
 
@@ -21,12 +20,12 @@ const testData = [
 ];
 
 const COLORS = [
-  "#D6B1FF",
-  "#FBC252",
-  "#C1C1C1",
-  "#BEB1FF",
-  "#C1C1C1",
-  "#FFB1B1",
+  "#D9B6FF",
+  "#FFB53D",
+  "#6EE4FE",
+  "#B0AEFF",
+  "#BCEC30",
+  "#FFB9B8",
 ];
 
 const CustomTooltip = ({ active, payload }) => {
@@ -42,6 +41,9 @@ const CustomTooltip = ({ active, payload }) => {
 
 const ExpenseBarChart = () => {
   const total = testData.reduce((sum, item) => sum + item.amount, 0);
+  const barWidth = 94;
+  const barGap = 32;
+  const chartWidth = testData.length * (barWidth + barGap);
 
   return (
     <S.Container>
@@ -50,27 +52,31 @@ const ExpenseBarChart = () => {
         <S.Period>Расходы за 29 июня 2024 — 4 августа 2024</S.Period>
       </S.Header>
 
-      <ResponsiveContainer width="100%" height={380}>
+      <S.Wrapper>
         <BarChart
+          width={chartWidth}
+          height={380}
           data={testData}
           margin={{ top: 40, right: 20, left: 20, bottom: 0 }}
-          barCategoryGap="20%"
+          barCategoryGap={barGap}
         >
           <XAxis
             dataKey="category"
-            tick={{
-              fill: "#1a1a1a",
-              fontSize: 14,
-            }}
+            tick={{ fill: "#1a1a1a", fontSize: 14 }}
             axisLine={false}
             tickLine={false}
           />
           <YAxis hide />
-          <Tooltip
+          {/* <Tooltip
             content={<CustomTooltip />}
             cursor={{ fill: "transparent" }}
-          />
-          <Bar dataKey="amount" radius={[10, 10, 10, 10]} minPointSize={6}>
+          /> */}
+          <Bar
+            dataKey="amount"
+            radius={[10, 10, 10, 10]}
+            minPointSize={6}
+            barSize={barWidth}
+          >
             {testData.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
@@ -95,7 +101,7 @@ const ExpenseBarChart = () => {
             />
           </Bar>
         </BarChart>
-      </ResponsiveContainer>
+      </S.Wrapper>
     </S.Container>
   );
 };

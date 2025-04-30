@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ResponsiveContainer } from "recharts";
 
 export const Container = styled.div`
   height: 540px;
@@ -58,4 +57,8 @@ export const TooltipItem = styled.p`
   color: #1a1a1a;
   font-size: 14px;
   font-weight: 500;
+`;
+
+export const Wrapper = styled.div`
+  padding-bottom: 10px;
 `;

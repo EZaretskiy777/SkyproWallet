@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 
 export const Header = styled.header`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 0 120px 0 120px;
+  background-color: #ffffff;
 `;
 
 export const HeaderContainer = styled.div`
@@ -29,15 +30,16 @@ export const HeaderBlock = styled.div`
 
 export const HeaderLogo = styled.div``;
 
-export const HeaderLink = styled(Link)`
-  text-decoration: none;
+export const HeaderLink = styled(NavLink)`
+  text-decoration: ${(props) => (props.$isActive ? "underline" : "none")};
   font-family: Montserrat;
   font-weight: 400;
   font-size: 14px;
   line-height: 170%;
   letter-spacing: 0px;
   text-align: center;
-  color: #000000;
+  color: ${(props) => (props.$isActive ? "#1FA46C" : "#000000")};
+  text-underline-offset: 5px;
 `;
 
 export const HeaderLogoImg = styled.img`
@@ -63,12 +65,4 @@ export const HeaderBtn = styled.button`
   text-align: center;
   border: none;
   background: transparent;
-
-  &:hover {
-    background-color: #f0f0f0;
-  }
-
-  &:hover::after {
-    background-color: #f0f0f0;
-  }
 `;
