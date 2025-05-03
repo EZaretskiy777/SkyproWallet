@@ -67,8 +67,8 @@ letter-spacing: 0px;
 text-align: center;
 vertical-align: middle;
 color: rgba(0, 0, 0, 1);
-margin-top: 35px;
-margin-bottom: 20px;
+margin-top: 40px;
+margin-bottom: 30px;
 
 `;
 
@@ -144,18 +144,17 @@ color: rgba(255, 255, 255, 1);
 `;
 
 export const ModalFormGroup = styled.div`
-  text-align: center;
-  display: flex;
-  flex-direction: row;
+width: 314;
+height: 40.00001525878906;
+gap: 4px;
+
 `;
 
 export const ModalFormGroupAP = styled(ModalFormGroup)`
 color: rgba(153, 153, 153, 1);
-width: 314;
-height: 40;
-//gap: 4px;
-//width: 113px;
-//height: 18px;
+//width: 113;
+//height: 18;
+gap: 10px;
 font-family: Montserrat;
 font-weight: 400;
 font-size: 12px;
@@ -165,7 +164,7 @@ text-align: center;
 vertical-align: middle;
 
   //letter-spacing: -0.14px;
-  margin-right: 15px;
+  //margin-right: 15px;
 `;
 
 export const ModalFormGroupA = styled(ModalFormGroupAP)`
