@@ -123,7 +123,6 @@ letter-spacing: 0px;
 text-align: center;
 vertical-align: middle;
 color: rgba(255, 255, 255, 1);
-
 `;
 
 export const ModalFormGroup = styled.div`
