@@ -44,12 +44,12 @@ top: 233px;
 left: 530px;
 border-radius: 30px;
 background: rgba(255, 255, 255, 1);
-//padding: 50px 60px;
-
-@media screen and (max-width: 379px) {
+  //border: 0.7px solid #d4dbe5;
+  box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
+  @media screen and (max-width: 379px) {
     //max-width: 368px;
     width: 100%;
-    //padding: 0 16px;
+    padding: 0 16px;
     border-radius: none;
     border: none;
     box-shadow: none;
@@ -57,8 +57,7 @@ background: rgba(255, 255, 255, 1);
 `;
 
 export const ModalTtl = styled.div`
-width: 65;
-height: 29;
+
 //gap: 10px;
 font-family: Montserrat;
 font-weight: 700;
@@ -80,43 +79,67 @@ export const ModalFormLogin = styled.form`
 `;
 
 export const ModalInput = styled.input`
-width: 313px;
-height: 39px;
-border-radius: 6px;
-//gap: 12px;
-padding: 12px;
-border-width: 0.5px;
-padding: 12px;
-margin-top: 12px;
-border: 0.5px solid rgba(153, 153, 153, 1);
+//outline: none;
+padding: 10px 8px;
+margin-top: 7px;
 
-&::placeholder {
+  background: transparent;
+  width: 313px;
+  height: 39px;
+  border-radius: 6px;
+  border: 0.5px solid rgba(153, 153, 153, 1);
+  gap: 12px;
+  padding: 12px;
+  outline: none;
+  padding: 10px 8px;
+
+  border-color: ${(props) =>
+    props.$error ? " rgba(242, 80, 80, 1)" : "rgba(148, 166, 190, 0.4)"};
+
+  ::-moz-placeholder {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
     letter-spacing: -0.28px;
-
+    color: #94a6be;
   }
+
+  ::placeholder {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.28px;
+    color: #94a6be;
+  }
+
+  margin-bottom: ${(props) => props.$notLastChild && "7px"};
 `;
 
 export const ModalBtnEnter = styled.span`
-width: 313px;
-height: 39px;
-border-radius: 6px;
-//gap: 12px;
-//padding: 12px;
+  width: 313px;
+  height: 39px;
+  background: rgba(31, 164, 108, 1);
+  background-color: ${(props) => (props.$disabled ? "#94A6BE" : "#rgba(31, 164, 108, 1)")};
+  border-radius: 6px;
   margin-top: 20px;
   margin-bottom: 20px;
+  border: none;
+  outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
   line-height: 21px;
-  //font-weight: 500;
-  //letter-spacing: -0.14px;
-  background: rgba(31, 164, 108, 1);
+  font-weight: 500;
+  letter-spacing: -0.14px;
+  color: #ffffff;
+  pointer-events: ${(props) => (props.$disabled ? "none" : null)};
 
+  &:hover {
+    background: rgba(153, 153, 153, 1);
+  }
   @media screen and (max-width: 379px) {
     height: 40px;
   }
@@ -153,4 +176,18 @@ color: rgba(153, 153, 153, 1);
 
 export const ModalFormGroupA = styled(ModalFormGroupAP)`
   text-decoration: underline;
+`;
+
+export const ErrorP = styled.p`
+width: 312px;
+height: 36px;
+  margin-top: 7px;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  text-align: center;
+  color:rgba(248, 77, 77, 1);
+
 `;
