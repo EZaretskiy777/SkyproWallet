@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import Header from "../../components/Header/Header.jsx";
 import * as S from "./RegisterPage.styled.js";
 import { routesPath } from "../../lib/routesPath.js";

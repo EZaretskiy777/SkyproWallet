@@ -1,13 +1,13 @@
 import Header from "../../components/Header/Header.jsx";
 import { routesPath } from "../../lib/routesPath.js";
 import * as S from "./LoginPage.styled.js";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 //import { loginAuth } from "../../services/Api.js";
 
 export const LoginPage = ({ login }) => {
   return (
     <>
-      <Header/>
+      <Header />
       <S.Wrapper>
           <S.Modal>
             <S.ModalBlock>
