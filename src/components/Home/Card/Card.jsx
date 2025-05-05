@@ -11,12 +11,12 @@ export function Card() {
 
                 <TitleProduct>Категория</TitleProduct>
                 <ProductBox>
-                    <ButtonProduct><img src="bag.png" alt="bag"/><p>Еда</p></ButtonProduct>
-                    <ButtonProduct><p>Транспорт</p></ButtonProduct>
-                    <ButtonProduct><p>Жилье</p></ButtonProduct>
-                    <ButtonProduct><p>Развлечения</p></ButtonProduct>
-                    <ButtonProduct><p>Образование</p></ButtonProduct>
-                    <ButtonProduct><p>Другое</p></ButtonProduct>
+                    <ButtonProduct><img src="bag.svg" alt="bag"/><p>Еда</p></ButtonProduct>
+                    <ButtonProduct><img src="car.svg" alt="car"/><p>Транспорт</p></ButtonProduct>
+                    <ButtonProduct><img src="house.svg" alt="house"/><p>Жилье</p></ButtonProduct>
+                    <ButtonProduct><img src="gameboy.svg" alt="gameboy"/><p>Развлечения</p></ButtonProduct>
+                    <ButtonProduct><img src="teacher.svg" alt="teacher"/><p>Образование</p></ButtonProduct>
+                    <ButtonProduct><img src="message-text.svg" alt="message-text"/><p>Другое</p></ButtonProduct>
                 </ProductBox>
 
                 <TitleDate>Дата</TitleDate>

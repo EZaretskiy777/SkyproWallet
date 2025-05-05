@@ -78,6 +78,7 @@ gap: 6px;
 `;
 
 export const ButtonProduct = styled.button`
+margin-top: 8px;
 max-width: 152px;
 height: 31px;
 border-radius: 30px;
@@ -87,6 +88,10 @@ padding-bottom: 8px;
 padding-left: 20px;
 background: #F4F5F6;
 border: 0px;
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: 12px;
 p {
 font-family: Montserrat;
 font-weight: 400;
@@ -99,6 +104,11 @@ margin: 0px;
 }
 img {
   width: 14px;
+height: 14px;
+}
+&:hover {
+  background: #DBFFE9;
+  color: #1FA46C;
 }
 `;
 

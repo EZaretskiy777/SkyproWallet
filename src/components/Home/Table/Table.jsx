@@ -1,4 +1,4 @@
-import { Cart, ColumnBox, ColumnDate, ColumnElements, ColumnPrice, ColumnProduct, ColumnSpace, ColumnTitle, Line, Redaction, Select, SelectElement, SelectName, SelectWrapper, STable, TableContent, TableItem, TableName, TableNav, TitleBox } from "./Table.styled";
+import { Cart, ColumnBox, ColumnBoxEl, ColumnDate, ColumnElements, ColumnPrice, ColumnProduct, ColumnSpace, ColumnTitle, Line, Redaction, Select, SelectElement, SelectName, SelectWrapper, STable, TableContent, TableItem, TableName, TableNav, TitleBox } from "./Table.styled";
 
 
 export function Table() {
@@ -108,11 +108,76 @@ export function Table() {
                     <ColumnPrice>840 ₽</ColumnPrice>
                     <ColumnPrice>920 ₽</ColumnPrice>
                 </ColumnBox>
-
+                <ColumnBoxEl>
                 <ColumnElements>
                     <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
-                    <Cart><a href="" target=""><img src="cart.png" alt="cart"></img></a></Cart>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
                 </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                <ColumnElements>
+                    <Redaction><a href="" target=""><img src="redaction.svg" alt="redaction"></img></a></Redaction>
+                    <Cart><a href="" target=""><img src="cart.svg" alt="cart"></img></a></Cart>
+                </ColumnElements>
+                </ColumnBoxEl>
             </TableContent>
         </STable>
     )

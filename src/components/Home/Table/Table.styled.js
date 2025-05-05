@@ -145,14 +145,29 @@ color: #000000;
 margin: 0px;
 `;
 
+export const ColumnBoxEl = styled.div`
+padding-left: 20px;
+display: flex;
+flex-direction: column;
+gap: 9px;
+`;
+
 export const ColumnElements = styled.div`
+display: flex;
+flex-direction: row;
+gap: 12px;
 `;
 
 export const Redaction = styled.div`
 img {
-     width: 12px;
+    width: 12px;
+height: 12px;
 }
 `;
 
 export const Cart = styled.div`
+img {
+    width: 12px;
+height: 12px;
+}
 `;
