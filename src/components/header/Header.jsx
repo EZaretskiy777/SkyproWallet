@@ -11,8 +11,13 @@ const Header = () => {
             </S.HeaderLink>
           </S.HeaderLogo>
           <S.HeaderNav>
-            <S.HeaderLink to="/newcard">Мои расходы</S.HeaderLink>
-            <S.HeaderLink to="/newcard">Анализ расходов</S.HeaderLink>
+            <S.HeaderLink to="/">Мои расходы</S.HeaderLink>
+            <S.HeaderLink
+              $isActive={({ isActive }) => (isActive ? "Y" : "N")}
+              to="/expensesanalys"
+            >
+              Анализ расходов
+            </S.HeaderLink>
           </S.HeaderNav>
           <S.HeaderBtn onMouseDown={(e) => e.stopPropagation()}>
             Выйти

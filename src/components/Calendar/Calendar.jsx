@@ -176,7 +176,7 @@ function CustomCalendar() {
 
       {mode === "month" && (
         <S.DayNames>
-          {["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"].map((d) => (
+          {["пн", "вт", "ср", "чт", "пт", "сб", "вс"].map((d) => (
             <div key={d}>{d}</div>
           ))}
         </S.DayNames>
