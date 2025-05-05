@@ -168,5 +168,5 @@ vertical-align: middle;
 `;
 
 export const ModalFormGroupA = styled(ModalFormGroupAP)`
-  //text-decoration: underline;
+  text-decoration: underline;
 `;

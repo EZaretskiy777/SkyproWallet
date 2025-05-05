@@ -44,12 +44,12 @@ top: 233px;
 left: 530px;
 border-radius: 30px;
 background: rgba(255, 255, 255, 1);
-padding: 50px 60px;
+//padding: 50px 60px;
 
-  @media screen and (max-width: 379px) {
+@media screen and (max-width: 379px) {
     //max-width: 368px;
     width: 100%;
-    padding: 0 16px;
+    //padding: 0 16px;
     border-radius: none;
     border: none;
     box-shadow: none;
@@ -62,11 +62,12 @@ height: 29;
 //gap: 10px;
 font-family: Montserrat;
 font-weight: 700;
-font-size: 24px;
+font-size: 20px;
 line-height: 100%;
 letter-spacing: 0px;
 text-align: center;
 vertical-align: middle;
+margin-top: 40px;
 margin-bottom: 20px;
 `;
 
@@ -87,8 +88,16 @@ padding: 12px;
 border-width: 0.5px;
 padding: 12px;
 margin-top: 12px;
-border: 0.5px solid rgba(153, 153, 153, 1)
-  
+border: 0.5px solid rgba(153, 153, 153, 1);
+
+&::placeholder {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.28px;
+
+  }
 `;
 
 export const ModalBtnEnter = styled.span`
@@ -104,12 +113,11 @@ border-radius: 6px;
   justify-content: center;
   font-size: 14px;
   line-height: 21px;
-  font-weight: 500;
+  //font-weight: 500;
   //letter-spacing: -0.14px;
   background: rgba(31, 164, 108, 1);
 
-
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 379px) {
     height: 40px;
   }
 `;
@@ -123,6 +131,7 @@ letter-spacing: 0px;
 text-align: center;
 vertical-align: middle;
 color: rgba(255, 255, 255, 1);
+
 `;
 
 export const ModalFormGroup = styled.div`
@@ -137,7 +146,6 @@ line-height: 150%;
 letter-spacing: 0px;
 text-align: center;
 vertical-align: middle;
-
 color: rgba(153, 153, 153, 1);
   //line-height: 150%;
   //letter-spacing: -0.14px;

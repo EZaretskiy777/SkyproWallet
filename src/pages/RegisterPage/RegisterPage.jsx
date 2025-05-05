@@ -43,7 +43,7 @@ export const RegisterPage = () => {
                   <S.ModalFormGroup>
                     <S.ModalFormGroupAP>Уже есть аккаунт?</S.ModalFormGroupAP>
                     <Link to={routesPath.LOGIN}>
-                      <S.ModalFormGroupAP>Войдите здесь</S.ModalFormGroupAP>
+                      <S.ModalFormGroupA>Войдите здесь</S.ModalFormGroupA>
                     </Link>
                   </S.ModalFormGroup>
                 </S.ModalFormLogin>

@@ -40,9 +40,9 @@ export const LoginPage = ({ login }) => {
                     Нужно зарегистрироваться?
                   </S.ModalFormGroupAP>
                   <Link to={routesPath.REGISTER}>
-                    <S.ModalFormGroupAP>
+                    <S.ModalFormGroupA>
                       Регистрируйтесь здесь
-                    </S.ModalFormGroupAP>
+                    </S.ModalFormGroupA>
                   </Link>
                 </S.ModalFormGroup>
               </S.ModalFormLogin>
