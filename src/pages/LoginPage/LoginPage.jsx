@@ -1,14 +1,14 @@
 import Header from "../../components/Header/Header.jsx";
 import { routesPath } from "../../lib/routesPath.js";
 import * as S from "./LoginPage.styled.js";
-import { Link } from "react-router-dom";
+import { Link, Outlet, useNavigate} from "react-router-dom";
 import { useState } from "react";
 //import PropTypes from "prop-types";
 import { loginAuth } from "../../services/api/user.js";
 import { useAuth } from "../../providers/AuthProvider";
 
 export const LoginPage = () => {
-  
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
 
   const [inputValue, setInputValue] = useState({
@@ -31,8 +31,11 @@ export const LoginPage = () => {
     }
     loginAuth(inputValue)
       .then((response) => {
+          localStorage.setItem("userInfo", JSON.stringify(response));
+          setIsAuth(true);
         setErrorMessage("");
-        setIsAuth(response);
+       // setIsAuth(true);
+        navigate(routesPath.MAIN)
       })
       .catch((err) => {
         setErrorMessage(err.message);
@@ -42,6 +45,7 @@ export const LoginPage = () => {
 
   return (
     <>
+    <Outlet/>
       <Header />
       <S.Wrapper>
           <S.Modal>
@@ -66,7 +70,7 @@ export const LoginPage = () => {
                   id="formpassword"
                   placeholder="Пароль"
                 />
-                <S.ErrorP>{errorMessage}</S.ErrorP>
+               {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
                 <S.ModalBtnEnter id="btnEnter">
                   <S.ModalBtnEnterA onClick={loginHandler}>
                     Войти

@@ -9,13 +9,14 @@ import { useAuth } from "./providers/AuthProvider";
 
 const AppRoutes = () => {
   const { isAuth } = useAuth();
-
+//console.log(isAuth)
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<PrivateRoute isAuth={isAuth} />}/>
+        <Route element={<PrivateRoute isAuth={isAuth} />}>
         <Route path="/" element={<HomePage/>} />
         <Route path="/expensesanalys" element={<ExpensesAnalys />} />
+        </Route>
         <Route path={routesPath.LOGIN} element={<LoginPage />} />
         <Route path={routesPath.REGISTER} element={<RegisterPage />} />
       </Routes>

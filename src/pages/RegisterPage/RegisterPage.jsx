@@ -1,10 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate} from "react-router-dom";
 import Header from "../../components/Header/Header.jsx";
 import * as S from "./RegisterPage.styled.js";
 import { routesPath } from "../../lib/routesPath.js";
 import { useState  } from "react";
 import { register } from "../../services/api/user.js";
-//import { useAuth } from "../../providers/AuthProvider";
+import { useAuth } from "../../providers/AuthProvider";
 
 export const RegisterPage = () => {
 
@@ -17,6 +17,7 @@ export const RegisterPage = () => {
     password: '',
   })
 
+  const { setIsAuth } = useAuth();
 
   const onChangeInput = (e) => {
     const {value, name} = e.target //;
@@ -32,9 +33,11 @@ export const RegisterPage = () => {
       return setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
     }
 
-    register(inputValue).then(() => {
+    register(inputValue).then((response) => {
+      localStorage.setItem("userInfo", JSON.stringify(response));
+      setIsAuth(true);
       setErrorMessage('')
-      navigate(routesPath.LOGIN)
+      navigate(routesPath.MAIN)
     }).catch ((err)=>{
       setErrorMessage(err.message)
 
@@ -43,6 +46,7 @@ export const RegisterPage = () => {
 
   return (
     <>
+    <Outlet/>
       <Header/>
         <S.Wrapper>
             <S.Modal>
@@ -72,8 +76,7 @@ export const RegisterPage = () => {
                   id="passwordFirst"
                   placeholder="Пароль"
                 />
-                <S.ErrorP>{errorMessage}</S.ErrorP>
-                 
+                {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
                 <Link to={routesPath.LOGIN}>
                   <S.ModalBtnRegisterEnter id="RegisterEnter">
                     <S.ModalBtnRegisterEnterA onClick={registerHandler}>

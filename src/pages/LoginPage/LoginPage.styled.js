@@ -102,7 +102,7 @@ margin-top: 7px;
     font-size: 14px;
     line-height: 21px;
     letter-spacing: -0.28px;
-    color: #94a6be;
+    color:rgb(149, 243, 185);
   }
 
   ::placeholder {
@@ -111,7 +111,7 @@ margin-top: 7px;
     font-size: 14px;
     line-height: 21px;
     letter-spacing: -0.28px;
-    color: #94a6be;
+    color:rgb(109, 164, 117);
   }
 
   margin-bottom: ${(props) => props.$notLastChild && "7px"};
@@ -121,7 +121,7 @@ export const ModalBtnEnter = styled.span`
   width: 313px;
   height: 39px;
   background: rgba(31, 164, 108, 1);
-  background-color: ${(props) => (props.$disabled ? "#94A6BE" : "#rgba(31, 164, 108, 1)")};
+  background-color: ${(props) => (props.$disabled ? "#94A6BE" : "#rgb(112, 211, 170)")};
   border-radius: 6px;
   margin-top: 20px;
   margin-bottom: 20px;

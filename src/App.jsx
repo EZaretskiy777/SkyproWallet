@@ -12,9 +12,5 @@ function App() {
     </>
   );
 }
- login__registration
 
 export default App;
-
-export default App;
- main
