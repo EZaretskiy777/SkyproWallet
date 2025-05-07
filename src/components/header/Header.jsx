@@ -2,7 +2,7 @@ import * as S from "./styledComponents";
 import { useAuth } from "../../providers/AuthProvider";
 
 const Header = () => {
-  const { IsAuth } = useAuth();
+  const { isAuth } = useAuth();
   //console.log("header", IsAuth)
   return (
 
@@ -15,7 +15,7 @@ const Header = () => {
             </S.HeaderLink>
           </S.HeaderLogo>
           <S.HeaderNav>
-           { IsAuth && <> <S.HeaderLink to="/">Мои расходы</S.HeaderLink>
+           { isAuth && <> <S.HeaderLink to="/">Мои расходы</S.HeaderLink>
             <S.HeaderLink
               $isActive={({ isActive }) => (isActive ? "Y" : "N")}
               to="/expensesanalys"
@@ -23,7 +23,7 @@ const Header = () => {
               Анализ расходов
             </S.HeaderLink></>}
           </S.HeaderNav>
-          { IsAuth && <S.HeaderBtn onMouseDown={(e) => e.stopPropagation()}>
+          { isAuth && <S.HeaderBtn onMouseDown={(e) => e.stopPropagation()}>
             Выйти
           </S.HeaderBtn>}
         </S.HeaderBlock>
