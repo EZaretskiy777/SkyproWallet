@@ -1,14 +1,18 @@
 import { GlobalStyles } from "./globalStyles";
 import AppRoutes from "./AppRoutes";
 import { AuthProvider } from "./providers/AuthProvider";
+import { TransactionsProvider } from "./providers/TransactionsProvider";
 
 function App() {
   return (
     <>
-    <AuthProvider>
-      <GlobalStyles />
-      <AppRoutes />
-    </AuthProvider>
+      <AuthProvider>
+        <TransactionsProvider>
+          <GlobalStyles />
+          <GlobalStyles />
+          <AppRoutes />
+        </TransactionsProvider>
+      </AuthProvider>
     </>
   );
 }

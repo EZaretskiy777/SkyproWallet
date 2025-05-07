@@ -2,8 +2,22 @@ import Header from "../../components/Header/Header";
 import Calendar from "../../components/Calendar/Calendar";
 import ExpenseBarChart from "../../components/ExpenseBarChart/ExpenseBarChart";
 import * as S from "./styledComponents";
+import { useEffect } from "react";
+import { useTransactions } from "../../providers/TransactionsProvider";
+import { getUserToken } from "../../utils/utils";
+import { getTransactions } from "../../services/api/transactions";
 
 const ExpensesAnalys = () => {
+  const { setTransactions, transactions } = useTransactions();
+
+  useEffect(() => {
+    if (transactions.length === 0) {
+      getTransactions({ token: getUserToken() }).then((data) => {
+        setTransactions(data);
+      });
+    }
+  }, []);
+
   return (
     <>
       <Header />
