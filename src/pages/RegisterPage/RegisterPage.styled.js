@@ -67,8 +67,8 @@ letter-spacing: 0px;
 text-align: center;
 vertical-align: middle;
 color: rgba(0, 0, 0, 1);
-margin-top: 35px;
-margin-bottom: 20px;
+margin-top: 40px;
+margin-bottom: 30px;
 
 `;
 
@@ -81,52 +81,75 @@ export const ModalFormLogin = styled.form`
 `;
 
 export const ModalInput = styled.input`
-width: 313px;
-height: 39px;
-border-radius: 6px;
-gap: 12px;
-padding: 12px;
-border-width: 0.5px;
-border: 0.5px solid rgba(153, 153, 153, 1);
   //outline: none;
   padding: 10px 8px;
   margin-top: 7px;
 
-  &::placeholder {
+  background: transparent;
+  width: 313px;
+  height: 39px;
+  border-radius: 6px;
+  border: 0.5px solid rgba(153, 153, 153, 1);
+  gap: 12px;
+  padding: 12px;
+  outline: none;
+  padding: 10px 8px;
+
+  border-color: ${(props) =>
+    props.$error ? " rgba(242, 80, 80, 1)" : "rgba(148, 166, 190, 0.4)"};
+
+  ::-moz-placeholder {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 14px;
-    //line-height: 21px;
-    //letter-spacing: -0.28px;
-    //color: #94a6be;
+    line-height: 21px;
+    letter-spacing: -0.28px;
+    color: #94a6be;
   }
+
+  ::placeholder {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.28px;
+    color: #94a6be;
+  }
+
+  margin-bottom: ${(props) => props.$notLastChild && "7px"};
 `;
 
 export const ModalBtnRegisterEnter = styled.span`
-width: 313px;
-height: 39px;
-border-radius: 6px;
-//gap: 12px;
-//padding: 12px;
+  width: 313px;
+  height: 39px;
+  background: rgba(31, 164, 108, 1);
+  background-color: ${(props) => (props.$disabled ? "#94A6BE" : "#rgba(31, 164, 108, 1)")};
+  border-radius: 6px;
   margin-top: 20px;
   margin-bottom: 20px;
+  border: none;
+  outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
   line-height: 21px;
-  //font-weight: 500;
-  
-  background-color: rgba(31, 164, 108, 1);
+  font-weight: 500;
+  letter-spacing: -0.14px;
+  color: #ffffff;
+  pointer-events: ${(props) => (props.$disabled ? "none" : null)};
 
-  @media screen and (max-width: 313px) {
+  &:hover {
+    background: rgba(153, 153, 153, 1);
+  }
+  @media screen and (max-width: 379px) {
     height: 40px;
   }
 `;
 
 export const Hover01 = styled(ModalBtnRegisterEnter)`
   &:hover {
-    background-color: #33399b;
+    background: rgba(31, 164, 108, 1);
   }
 `;
 
@@ -144,18 +167,17 @@ color: rgba(255, 255, 255, 1);
 `;
 
 export const ModalFormGroup = styled.div`
-  text-align: center;
-  display: flex;
-  flex-direction: row;
+width: 314;
+height: 40.00001525878906;
+gap: 4px;
+
 `;
 
 export const ModalFormGroupAP = styled(ModalFormGroup)`
 color: rgba(153, 153, 153, 1);
-width: 314;
-height: 40;
-//gap: 4px;
-//width: 113px;
-//height: 18px;
+//width: 113;
+//height: 18;
+gap: 10px;
 font-family: Montserrat;
 font-weight: 400;
 font-size: 12px;
@@ -165,9 +187,23 @@ text-align: center;
 vertical-align: middle;
 
   //letter-spacing: -0.14px;
-  margin-right: 15px;
+  //margin-right: 15px;
 `;
 
 export const ModalFormGroupA = styled(ModalFormGroupAP)`
-  //text-decoration: underline;
+  text-decoration: underline;
+`;
+
+export const ErrorP = styled.p`
+width: 312px;
+height: 36px;
+  margin-top: 7px;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  text-align: center;
+  color:rgba(248, 77, 77, 1);
+
 `;
