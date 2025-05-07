@@ -9,7 +9,6 @@ import { useAuth } from "./providers/AuthProvider";
 
 const AppRoutes = () => {
   const { isAuth } = useAuth();
-  //console.log(isAuth)
   return (
     <BrowserRouter>
       <Routes>
