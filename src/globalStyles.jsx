@@ -44,7 +44,7 @@ body {
   height: 100%;
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   color: #000000;
-  background-color: #eaeef6;
+  background-color: #F4F5F6;
 }
   
 .react-calendar {

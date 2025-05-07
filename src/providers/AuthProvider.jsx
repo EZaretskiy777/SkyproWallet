@@ -9,6 +9,7 @@ const AuthProvider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
+    console.log("localStorage", localStorage.getItem("userInfo"));
     setIsAuth(localStorage.getItem("userInfo") ? true : false);
   }, []);
 
