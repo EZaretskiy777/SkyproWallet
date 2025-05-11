@@ -1,3 +1,4 @@
+import React from "react";
 import * as S from "./styledComponents";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../providers/AuthProvider";
