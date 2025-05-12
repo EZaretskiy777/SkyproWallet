@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   max-width: 100%;
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  //height: 600px;
   overflow: hidden;
+  padding: 0 calc(50% - 600px) 0 calc(50% - 600px);
   background-color: #F1F1F1;
 `;
 
@@ -57,7 +58,6 @@ background: rgba(255, 255, 255, 1);
 `;
 
 export const ModalTtl = styled.div`
-
 //gap: 10px;
 font-family: Montserrat;
 font-weight: 700;
@@ -75,13 +75,13 @@ export const ModalFormLogin = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center;  
 `;
 
 export const ModalInput = styled.input`
 //outline: none;
-padding: 10px 8px;
-margin-top: 7px;
+  padding: 10px 8px;
+  margin-top: 7px;
 
   background: transparent;
   width: 313px;
@@ -94,7 +94,7 @@ margin-top: 7px;
   padding: 10px 8px;
 
   border-color: ${(props) =>
-    props.$error ? " rgba(242, 80, 80, 1)" : "rgba(148, 166, 190, 0.4)"};
+    props.$errorMessage ? " rgba(242, 80, 80, 1)" : "rgba(148, 166, 190, 0.4)"};
 
   ::-moz-placeholder {
     font-family: "Roboto", sans-serif;
@@ -114,14 +114,14 @@ margin-top: 7px;
     color:rgb(109, 164, 117);
   }
 
-  margin-bottom: ${(props) => props.$notLastChild && "7px"};
+  //margin-bottom: ${(props) => props.$notLastChild && "7px"};
 `;
 
 export const ModalBtnEnter = styled.span`
   width: 313px;
   height: 39px;
-  background: rgba(31, 164, 108, 1);
-  background-color: ${(props) => (props.$disabled ? "#94A6BE" : "#rgb(112, 211, 170)")};
+  //background: rgba(31, 164, 108, 1);
+  background-color: ${(props) => (props.$disabled ? "rgba(153, 153, 153, 1)" : " rgba(31, 164, 108, 1)")};
   border-radius: 6px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -138,7 +138,7 @@ export const ModalBtnEnter = styled.span`
   pointer-events: ${(props) => (props.$disabled ? "none" : null)};
 
   &:hover {
-    background: rgba(153, 153, 153, 1);
+    background:rgba(153, 153, 153, 1);
   }
   @media screen and (max-width: 379px) {
     height: 40px;
@@ -179,8 +179,8 @@ export const ModalFormGroupA = styled(ModalFormGroupAP)`
 `;
 
 export const ErrorP = styled.p`
-width: 312px;
-height: 36px;
+  width: 312px;
+  height: 36px;
   margin-top: 7px;
   font-family: Montserrat;
   font-weight: 400;
@@ -189,5 +189,4 @@ height: 36px;
   letter-spacing: 0%;
   text-align: center;
   color:rgba(248, 77, 77, 1);
-
 `;

@@ -44,6 +44,39 @@ export const RegisterPage = () => {
     })
   }
 
+   const validateForm = () => {
+    const newErrors = { name: false, login: false, password: false };
+    let isValid = true;
+
+    if (!inputValue.name.trim()) {
+      newErrors.name = true;
+      setErrorMessage();
+      isValid = false;
+    }
+
+    if (!inputValue.login.trim()) {
+
+      newErrors.login = true;
+      setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
+      isValid = false;
+    }
+
+    if (!inputValue.password.trim()) {
+      newErrors.password = true;
+      setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
+      isValid = false;
+    }
+
+    setErrorMessage(newErrors);
+    return isValid;
+  };
+
+   const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) {
+      return;
+    }}
+
   return (
     <>
     <Outlet/>
@@ -54,31 +87,34 @@ export const RegisterPage = () => {
               <S.ModalTtl>
                 <h2>Регистрация</h2>
               </S.ModalTtl>
-              <S.ModalFormLogin id="formLogUp" action="#">
+              <S.ModalFormLogin onSubmit={handleSubmit}>
                 <S.ModalInput
                  onChange={onChangeInput} value={inputValue.name}
+                 $errorMessage={errorMessage.name}
                   type="text"
                   name="name"
-                  id="first-name"
+                  //id="first-name"
                   placeholder="Имя"
                 />
                 <S.ModalInput
                  onChange={onChangeInput} value={inputValue.login}
+                 $errorMessage={errorMessage.login}
                   type="text"
                   name="login"
-                  id="loginReg"
+                  //id="loginReg"
                   placeholder="Эл. почта"
                 />
                 <S.ModalInput
                  onChange={onChangeInput} value={inputValue.password}
+                 $errorMessage={errorMessage.password}
                   type="password"
                   name="password"
-                  id="passwordFirst"
+                  //id="passwordFirst"
                   placeholder="Пароль"
                 />
                 {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
                 <Link to={routesPath.LOGIN}>
-                  <S.ModalBtnRegisterEnter id="RegisterEnter">
+                  <S.ModalBtnRegisterEnter $disabled={errorMessage === "" ? false : true}>
                     <S.ModalBtnRegisterEnterA onClick={registerHandler}>
                      Зарегистрироваться
                     </S.ModalBtnRegisterEnterA>

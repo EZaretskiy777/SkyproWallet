@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   max-width: 100%;
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  //height: 600px;
   overflow: hidden;
+  padding: 0 calc(50% - 600px) 0 calc(50% - 600px);
   background-color: #F1F1F1;
 `;
 
@@ -96,7 +97,7 @@ export const ModalInput = styled.input`
   padding: 10px 8px;
 
   border-color: ${(props) =>
-    props.$error ? " rgba(242, 80, 80, 1)" : "rgba(148, 166, 190, 0.4)"};
+    props.$$errorMessage ? " rgba(242, 80, 80, 1)" : "rgba(148, 166, 190, 0.4)"};
 
   ::-moz-placeholder {
     font-family: "Roboto", sans-serif;
@@ -104,7 +105,8 @@ export const ModalInput = styled.input`
     font-size: 14px;
     line-height: 21px;
     letter-spacing: -0.28px;
-    color: #94a6be;
+    background: rgba(219, 255, 233, 1);
+    //color: #94a6be;
   }
 
   ::placeholder {
@@ -113,7 +115,8 @@ export const ModalInput = styled.input`
     font-size: 14px;
     line-height: 21px;
     letter-spacing: -0.28px;
-    color: #94a6be;
+    background: rgba(219, 255, 233, 1);
+    //color: #94a6be;
   }
 
   margin-bottom: ${(props) => props.$notLastChild && "7px"};
@@ -122,8 +125,8 @@ export const ModalInput = styled.input`
 export const ModalBtnRegisterEnter = styled.span`
   width: 313px;
   height: 39px;
-  background: rgba(31, 164, 108, 1);
-  background-color: ${(props) => (props.$disabled ? "#94A6BE" : "#rgba(31, 164, 108, 1)")};
+  //background: rgba(31, 164, 108, 1);
+  background-color: ${(props) => (props.$disabled ? "rgba(153, 153, 153, 1)" : " rgba(31, 164, 108, 1)")};
   border-radius: 6px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -170,7 +173,6 @@ export const ModalFormGroup = styled.div`
 width: 314;
 height: 40.00001525878906;
 gap: 4px;
-
 `;
 
 export const ModalFormGroupAP = styled(ModalFormGroup)`
@@ -205,5 +207,4 @@ height: 36px;
   letter-spacing: 0%;
   text-align: center;
   color:rgba(248, 77, 77, 1);
-
 `;

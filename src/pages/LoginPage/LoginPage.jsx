@@ -43,6 +43,33 @@ export const LoginPage = () => {
   };
 
 
+  const validateForm = () => {
+    const newErrors = { login: false, password: false };
+    let isValid = true;
+
+    if (!inputValue.login.trim()) {
+
+      newErrors.login = true;
+      setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
+      isValid = false;
+    }
+
+    if (!inputValue.password.trim()) {
+      newErrors.password = true;
+      setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
+      isValid = false;
+    }
+
+    setErrorMessage(newErrors);
+    return isValid;
+  };
+
+   const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) {
+      return;
+    }}
+
   return (
     <>
     <Outlet/>
@@ -53,25 +80,29 @@ export const LoginPage = () => {
               <S.ModalTtl>
                 <h2>Вход</h2>
               </S.ModalTtl>
-              <S.ModalFormLogin >
+              <S.ModalFormLogin onSubmit={handleSubmit}>
                 <S.ModalInput
+                 $notLastChild={true}
                   onChange={onChangeInput}
                   value={inputValue.login}
+                  $errorMessage={errorMessage.login}
                   type="text"
                   name="login"
-                  id="formlogin"
+                  //id="formlogin"
                   placeholder="Эл. почта"
                 />
                 <S.ModalInput
+                 $notLastChild={true}
                   onChange={onChangeInput}
                   value={inputValue.password}
+                  $errorMessage={errorMessage.password}
                   type="password"
                   name="password"
-                  id="formpassword"
+                  //id="formpassword"
                   placeholder="Пароль"
                 />
                {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
-                <S.ModalBtnEnter id="btnEnter">
+                <S.ModalBtnEnter $disabled={errorMessage === "" ? false : true}>
                   <S.ModalBtnEnterA onClick={loginHandler}>
                     Войти
                   </S.ModalBtnEnterA>
