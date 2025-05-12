@@ -1,5 +1,5 @@
 import * as S from "./styledComponents";
-import React, { useState } from "react";
+import React from "react";
 import {
   format,
   addDays,
@@ -21,10 +21,9 @@ import {
 } from "date-fns";
 import { ru } from "date-fns/locale";
 
-function CustomCalendar() {
-  const [mode, setMode] = useState("month");
-  const [currentDate, setCurrentDate] = useState(new Date());
-  const [range, setRange] = useState([null, null]);
+function CustomCalendar({ range, setRange }) {
+  const [mode, setMode] = React.useState("month");
+  const [currentDate, setCurrentDate] = React.useState(new Date());
 
   const handleDateClick = (day) => {
     const [start, end] = range;

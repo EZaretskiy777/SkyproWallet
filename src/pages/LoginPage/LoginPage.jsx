@@ -1,8 +1,8 @@
 import Header from "../../components/Header/Header.jsx";
 import { routesPath } from "../../lib/routesPath.js";
 import * as S from "./LoginPage.styled.js";
-import { Link, Outlet, useNavigate} from "react-router-dom";
-import { useState } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 //import PropTypes from "prop-types";
 import { loginAuth } from "../../services/api/user.js";
 import { useAuth } from "../../providers/AuthProvider";
@@ -27,20 +27,23 @@ export const LoginPage = () => {
     e.preventDefault();
     const { login, password } = inputValue; //пустые поля
     if (!login || !password) {
-      return setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
+      return setErrorMessage(
+        "Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку"
+      );
     }
     loginAuth(inputValue)
       .then((response) => {
-          localStorage.setItem("userInfo", JSON.stringify(response));
-          setIsAuth(true);
+        localStorage.setItem("userInfo", JSON.stringify(response));
+        setIsAuth(true);
         setErrorMessage("");
-       // setIsAuth(true);
-        navigate(routesPath.MAIN)
+        // setIsAuth(true);
+        navigate(routesPath.MAIN);
       })
       .catch((err) => {
         setErrorMessage(err.message);
       });
   };
+
 
 
   const validateForm = () => {
@@ -72,7 +75,7 @@ export const LoginPage = () => {
 
   return (
     <>
-    <Outlet/>
+      <Outlet />
       <Header />
       <S.Wrapper>
           <S.Modal>
@@ -120,7 +123,6 @@ export const LoginPage = () => {
               </S.ModalFormLogin>
             </S.ModalBlock>
           </S.Modal>
-        
       </S.Wrapper>
     </>
   );

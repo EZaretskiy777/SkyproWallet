@@ -74,6 +74,9 @@ export const ModeButton = styled.button`
   letter-spacing: 0px;
   text-align: center;
   vertical-align: middle;
+  &:hover {
+    color: #1fa46c;
+  }
 `;
 
 export const DayNames = styled.div`
