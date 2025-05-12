@@ -24,13 +24,6 @@ export async function getTransactionsPeriod({ token, start, end }) {
       params: { token, start, end },
     });
 
-    if (response.status === 500) {
-      throw new Error("Ошибка сервера");
-    }
-    if (!response.ok) {
-      throw new Error("Что то пошло не так");
-    }
-
     return response.data;
   } catch (error) {
     console.error("Error:", error.response?.data || error.message);

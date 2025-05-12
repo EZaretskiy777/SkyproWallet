@@ -9,43 +9,50 @@ import {
   LabelList,
   Cell,
 } from "recharts";
+import { useTransactions } from "../../providers/TransactionsProvider";
+import { categoryTypes, categoryTypeColors } from "../../../enums";
 
-const testData = [
-  { category: "Еда", amount: 21990 },
-  { category: "Транспорт", amount: 11046 },
-  { category: "Жилье", amount: 0 },
-  { category: "Развлечения", amount: 13050 },
-  { category: "Образование", amount: 0 },
-  { category: "Другое", amount: 19106 },
-];
+const ExpenseBarChart = ({ selectedRange }) => {
+  const { transactions } = useTransactions();
 
-const COLORS = [
-  "#D9B6FF",
-  "#FFB53D",
-  "#6EE4FE",
-  "#B0AEFF",
-  "#BCEC30",
-  "#FFB9B8",
-];
+  const chartData = Object.keys(categoryTypes).map((key) => {
+    const total = transactions
+      .filter((t) => t.category === key)
+      .reduce((sum, t) => sum + t.sum, 0);
 
-const ExpenseBarChart = () => {
-  const total = testData.reduce((sum, item) => sum + item.amount, 0);
+    return {
+      categoryKey: key,
+      category: categoryTypes[key],
+      amount: total,
+    };
+  });
+
+  const total = chartData.reduce((sum, item) => sum + item.amount, 0);
   const barWidth = 94;
   const barGap = 32;
-  const chartWidth = testData.length * (barWidth + barGap);
+  const chartWidth = chartData.length * (barWidth + barGap);
+
+  const formatRange = () => {
+    if (selectedRange?.[0] && selectedRange?.[1]) {
+      return `${selectedRange[0].toLocaleDateString(
+        "ru-RU"
+      )} — ${selectedRange[1].toLocaleDateString("ru-RU")}`;
+    }
+    return "Выберите период";
+  };
 
   return (
     <S.Container>
       <S.Header>
         <S.TotalAmount>{total.toLocaleString("ru-RU")} ₽</S.TotalAmount>
-        <S.Period>Расходы за 29 июня 2024 — 4 августа 2024</S.Period>
+        <S.Period>Расходы за {formatRange()}</S.Period>
       </S.Header>
 
       <S.Wrapper>
         <BarChart
           width={chartWidth}
           height={420}
-          data={testData}
+          data={chartData}
           margin={{ top: 40, right: 20, left: 20, bottom: 0 }}
           barCategoryGap={barGap}
         >
@@ -62,10 +69,10 @@ const ExpenseBarChart = () => {
             minPointSize={6}
             barSize={barWidth}
           >
-            {testData.map((entry, index) => (
+            {chartData.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
+                fill={categoryTypeColors[entry.categoryKey]}
               />
             ))}
             <LabelList
