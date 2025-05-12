@@ -70,7 +70,6 @@ vertical-align: middle;
 color: rgba(0, 0, 0, 1);
 margin-top: 40px;
 margin-bottom: 30px;
-
 `;
 
 export const ModalFormLogin = styled.form`
@@ -119,7 +118,7 @@ export const ModalInput = styled.input`
     //color: #94a6be;
   }
 
-  margin-bottom: ${(props) => props.$notLastChild && "7px"};
+  //margin-bottom: ${(props) => props.$notLastChild && "7px"};
 `;
 
 export const ModalBtnRegisterEnter = styled.span`
