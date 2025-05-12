@@ -9,5 +9,7 @@ export const dateFormat = (inputDate) => {
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
 
-  return `${day}-${month}-${year}`;
+  return `${month}-${day}-${year}`;
 };
+
+export const isAuth = () => (localStorage.getItem("userInfo") ? true : false);
