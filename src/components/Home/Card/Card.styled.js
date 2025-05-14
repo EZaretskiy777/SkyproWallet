@@ -5,6 +5,7 @@ width: 379px;
 height: 618px;
 border-radius: 30px;
 background: #FFFFFF;
+box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 `;
 
 export const CardContainer = styled.div`
