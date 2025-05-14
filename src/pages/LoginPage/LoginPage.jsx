@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { loginAuth } from "../../services/api/user.js";
 import { useAuth } from "../../providers/AuthProvider";
 
+
 export const LoginPage = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
@@ -15,6 +16,14 @@ export const LoginPage = () => {
     login: "",
     password: "",
   });
+
+    const [errors, setErrors] = useState({
+      name: false,
+      login: false,
+      password: false,
+    });
+   
+   const [setError] = useState("");
 
   const { setIsAuth } = useAuth();
 
@@ -44,34 +53,32 @@ export const LoginPage = () => {
       });
   };
 
-
-
   const validateForm = () => {
     const newErrors = { login: false, password: false };
     let isValid = true;
 
-    if (!inputValue.login.trim()) {
+    if (!inputValue.login === "") {
 
       newErrors.login = true;
       setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
       isValid = false;
     }
 
-    if (!inputValue.password.trim()) {
+    if (!inputValue.password === "") {
       newErrors.password = true;
-      setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
+      setError("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
       isValid = false;
     }
 
-    setErrorMessage(newErrors);
+    setErrors(newErrors);
     return isValid;
   };
 
-   const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
       return;
-    }}
+  }};
 
   return (
     <>
@@ -88,22 +95,22 @@ export const LoginPage = () => {
                  $notLastChild={true}
                   onChange={onChangeInput}
                   value={inputValue.login}
-                  $errorMessage={errorMessage.login}
+                  $error={errors.login}
                   type="text"
                   name="login"
                   //id="formlogin"
                   placeholder="Эл. почта"
                 />
-                <S.ModalInput
+                 <S.ModalInput
                  $notLastChild={true}
                   onChange={onChangeInput}
                   value={inputValue.password}
-                  $errorMessage={errorMessage.password}
+                  $error={errors.password}
                   type="password"
                   name="password"
                   //id="formpassword"
                   placeholder="Пароль"
-                />
+                /> 
                {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
                 <S.ModalBtnEnter $disabled={errorMessage === "" ? false : true}>
                   <S.ModalBtnEnterA onClick={loginHandler}>

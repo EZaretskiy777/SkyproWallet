@@ -81,8 +81,6 @@ export const ModalFormLogin = styled.form`
 `;
 
 export const ModalInput = styled.input`
-  //outline: none;
-  padding: 10px 8px;
   margin-top: 7px;
 
   background: transparent;
@@ -91,34 +89,28 @@ export const ModalInput = styled.input`
   border-radius: 6px;
   border: 0.5px solid rgba(153, 153, 153, 1);
   gap: 12px;
-  padding: 12px;
+  //padding: 12px;
   outline: none;
   padding: 10px 8px;
 
   border-color: ${(props) =>
-    props.$$errorMessage ? " rgba(242, 80, 80, 1)" : "rgba(148, 166, 190, 0.4)"};
+    props.$error ? " rgba(242, 80, 80, 1)" : "rgba(148, 166, 190, 0.4)"};
 
-  ::-moz-placeholder {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    letter-spacing: -0.28px;
-    background: rgba(219, 255, 233, 1);
-    //color: #94a6be;
-  }
-
-  ::placeholder {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    letter-spacing: -0.28px;
-    background: rgba(219, 255, 233, 1);
-    //color: #94a6be;
-  }
-
-  //margin-bottom: ${(props) => props.$notLastChild && "7px"};
+&::placeholder {
+font-family: Montserrat;
+font-weight: 400;
+font-size: 12px;
+line-height: 100%;
+letter-spacing: 0px;
+vertical-align: middle;
+border: 0.5px solid rgba(153, 153, 153, 1)
+}
+&:hover {
+  background: #DBFFE9;
+  color:rgb(0, 0, 0);
+  border: 0.5px solid #1FA46C;
+  background: rgba(219, 255, 233, 1);
+}
 `;
 
 export const ModalBtnRegisterEnter = styled.span`

@@ -16,6 +16,14 @@ export const RegisterPage = () => {
     password: "",
   });
 
+   const [errors, setErrors] = useState({
+    name: false,
+    login: false,
+    password: false,
+  });
+ 
+ const [setError] = useState("");
+
   const { setIsAuth } = useAuth();
 
   const onChangeInput = (e) => {
@@ -45,31 +53,31 @@ export const RegisterPage = () => {
         setErrorMessage(err.message);
       });
   };
-
-   const validateForm = () => {
+  
+  const validateForm = () => {
     const newErrors = { name: false, login: false, password: false };
     let isValid = true;
 
     if (!inputValue.name.trim()) {
       newErrors.name = true;
-      setErrorMessage();
+      setError();
       isValid = false;
     }
 
     if (!inputValue.login.trim()) {
 
       newErrors.login = true;
-      setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
+      setError("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
       isValid = false;
     }
 
     if (!inputValue.password.trim()) {
       newErrors.password = true;
-      setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
+      setError("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
       isValid = false;
     }
 
-    setErrorMessage(newErrors);
+    setErrors(newErrors);
     return isValid;
   };
 
@@ -92,7 +100,7 @@ export const RegisterPage = () => {
               <S.ModalFormLogin onSubmit={handleSubmit}>
                 <S.ModalInput
                  onChange={onChangeInput} value={inputValue.name}
-                 $errorMessage={errorMessage.name}
+                 $error={errors.name}
                   type="text"
                   name="name"
                   //id="first-name"
@@ -100,7 +108,7 @@ export const RegisterPage = () => {
                 />
                 <S.ModalInput
                  onChange={onChangeInput} value={inputValue.login}
-                 $errorMessage={errorMessage.login}
+                 $error={errors.login}
                   type="text"
                   name="login"
                   //id="loginReg"
@@ -108,7 +116,7 @@ export const RegisterPage = () => {
                 />
                 <S.ModalInput
                  onChange={onChangeInput} value={inputValue.password}
-                 $errorMessage={errorMessage.password}
+                 $error={errors.password}
                   type="password"
                   name="password"
                   //id="passwordFirst"
