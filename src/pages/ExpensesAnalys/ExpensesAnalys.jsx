@@ -8,6 +8,7 @@ import { getUserToken, dateFormat } from "../../utils/utils";
 import { getTransactionsPeriod } from "../../services/api/transactions";
 
 const ExpensesAnalys = () => {
+  //для PullRequest
   const { setTransactions } = useTransactions();
   const [range, setRange] = useState([new Date(), new Date()]);
 
