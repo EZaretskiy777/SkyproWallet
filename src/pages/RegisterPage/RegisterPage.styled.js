@@ -39,8 +39,10 @@ export const Modal = styled.div`
 `;
 
 export const ModalBlock = styled.div`
-width: 379px;
-height: 385px;
+max-width: 379px;
+width: 100%;
+padding: 20px 40px;
+//height: 385px;
 top: 207px;
 left: 530px;
 border-radius: 30px;
@@ -58,8 +60,8 @@ background-color: #ffffff;
 `;
 
 export const ModalTtl = styled.div`
-width: 169;
-height: 29;
+//width: 169;
+//height: 29;
 font-family: Montserrat;
 font-weight: 700;
 font-size: 20px;
@@ -68,8 +70,8 @@ letter-spacing: 0px;
 text-align: center;
 vertical-align: middle;
 color: rgba(0, 0, 0, 1);
-margin-top: 40px;
-margin-bottom: 30px;
+margin-top: 25px;
+margin-bottom: 25px;
 `;
 
 export const ModalFormLogin = styled.form`
@@ -81,8 +83,7 @@ export const ModalFormLogin = styled.form`
 `;
 
 export const ModalInput = styled.input`
-  margin-top: 7px;
-
+  margin-top: 10px;
   background: transparent;
   width: 313px;
   height: 39px;
@@ -90,6 +91,12 @@ export const ModalInput = styled.input`
   border: 0.5px solid rgba(153, 153, 153, 1);
   gap: 12px;
   //padding: 12px;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  vertical-align: middle;
   outline: none;
   padding: 10px 8px;
 
@@ -98,12 +105,7 @@ export const ModalInput = styled.input`
 
 &::placeholder {
 font-family: Montserrat;
-font-weight: 400;
-font-size: 12px;
-line-height: 100%;
-letter-spacing: 0px;
 vertical-align: middle;
-border: 0.5px solid rgba(153, 153, 153, 1)
 }
 &:hover {
   background: #DBFFE9;
@@ -119,8 +121,8 @@ export const ModalBtnRegisterEnter = styled.span`
   //background: rgba(31, 164, 108, 1);
   background-color: ${(props) => (props.$disabled ? "rgba(153, 153, 153, 1)" : " rgba(31, 164, 108, 1)")};
   border-radius: 6px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 25px;
+  margin-bottom: 25px;
   border: none;
   outline: none;
   display: flex;
@@ -164,12 +166,11 @@ export const ModalFormGroup = styled.div`
 width: 314;
 height: 40.00001525878906;
 gap: 4px;
+margin-bottom: 5px;
 `;
 
 export const ModalFormGroupAP = styled(ModalFormGroup)`
 color: rgba(153, 153, 153, 1);
-//width: 113;
-//height: 18;
 gap: 10px;
 font-family: Montserrat;
 font-weight: 400;
@@ -178,7 +179,6 @@ line-height: 150%;
 letter-spacing: 0px;
 text-align: center;
 vertical-align: middle;
-
   //letter-spacing: -0.14px;
   //margin-right: 15px;
 `;

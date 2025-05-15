@@ -39,14 +39,16 @@ export const Modal = styled.div`
 `;
 
 export const ModalBlock = styled.div`
-width: 379px;
-height: 334px;
+max-width: 379px;
+width: 100%;
+padding: 20px 40px;
+//height: 334px;
 top: 233px;
 left: 530px;
 border-radius: 30px;
 background: rgba(255, 255, 255, 1);
   //border: 0.7px solid #d4dbe5;
-  box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
+box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
   @media screen and (max-width: 379px) {
     //max-width: 368px;
     width: 100%;
@@ -66,8 +68,8 @@ line-height: 100%;
 letter-spacing: 0px;
 text-align: center;
 vertical-align: middle;
-margin-top: 40px;
-margin-bottom: 20px;
+margin-top: 30px;
+margin-bottom: 25px;
 `;
 
 export const ModalFormLogin = styled.form`
@@ -79,7 +81,7 @@ export const ModalFormLogin = styled.form`
 `;
 
 export const ModalInput = styled.input`
-  margin-top: 7px;
+  margin-top: 10px;
   background: transparent;
   width: 313px;
   height: 39px;
@@ -87,6 +89,12 @@ export const ModalInput = styled.input`
   border: 0.5px solid rgba(153, 153, 153, 1);
   gap: 12px;
   //padding: 12px;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  vertical-align: middle;
   outline: none;
   padding: 10px 8px;
 
@@ -95,19 +103,13 @@ export const ModalInput = styled.input`
   
 &::placeholder {
 font-family: Montserrat;
-font-weight: 400;
-font-size: 12px;
-line-height: 100%;
-letter-spacing: 0px;
 vertical-align: middle;
-border: 0.5px solid rgba(153, 153, 153, 1)
 }
 &:hover {
   background: #DBFFE9;
   color:rgb(0, 0, 0);
   border: 0.5px solid #1FA46C;
   background: rgba(219, 255, 233, 1);
-
 }
 `;
 
@@ -153,6 +155,7 @@ color: rgba(255, 255, 255, 1);
 
 export const ModalFormGroup = styled.div`
   text-align: center;
+  margin-bottom: 5px;
 `;
 
 export const ModalFormGroupAP = styled(ModalFormGroup)`
