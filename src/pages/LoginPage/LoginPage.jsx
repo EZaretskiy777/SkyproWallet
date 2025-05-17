@@ -7,7 +7,6 @@ import React, { useState } from "react";
 import { loginAuth } from "../../services/api/user.js";
 import { useAuth } from "../../providers/AuthProvider";
 
-
 export const LoginPage = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
@@ -18,12 +17,9 @@ export const LoginPage = () => {
   });
 
     const [errors, setErrors] = useState({
-      name: false,
       login: false,
       password: false,
     });
-   
-   const [setError] = useState("");
 
   const { setIsAuth } = useAuth();
 
@@ -32,14 +28,8 @@ export const LoginPage = () => {
     setInputValue({ ...inputValue, [name]: value });
   };
 
-  const loginHandler = (e) => {
-    e.preventDefault();
-    const { login, password } = inputValue; //пустые поля
-    if (!login || !password) {
-      return setErrorMessage(
-        "Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку"
-      );
-    }
+  const loginHandler = async() => {
+
     loginAuth(inputValue)
       .then((response) => {
         localStorage.setItem("userInfo", JSON.stringify(response));
@@ -57,17 +47,18 @@ export const LoginPage = () => {
     const newErrors = { login: false, password: false };
     let isValid = true;
 
-    if (!inputValue.login === "") {
-
+    if (!inputValue.login.trim()) {
       newErrors.login = true;
-      setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
       isValid = false;
     }
 
-    if (!inputValue.password === "") {
+    if (!inputValue.password.trim()) {
       newErrors.password = true;
-      setError("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
       isValid = false;
+    }
+    
+    if(!isValid) {
+      setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
     }
 
     setErrors(newErrors);
@@ -76,9 +67,12 @@ export const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) {
+    const isFormValid = validateForm()
+    if (!isFormValid) {
+      console.log("форма не валидна")
       return;
-  }};
+  } loginHandler()
+};
 
   return (
     <>
@@ -112,11 +106,9 @@ export const LoginPage = () => {
                   placeholder="Пароль"
                 /> 
                {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
-                <S.ModalBtnEnter $disabled={errorMessage === "" ? false : true}>
-                  <S.ModalBtnEnterA onClick={loginHandler}>
+                <S.ModalBtnEnter  disabled={errorMessage === "" ? false : true} type="submit">
                     Войти
-                  </S.ModalBtnEnterA>
-                </S.ModalBtnEnter>
+              </S.ModalBtnEnter>
                 <S.ModalFormGroup>
                   <S.ModalFormGroupAP>
                     Нужно зарегистрироваться?

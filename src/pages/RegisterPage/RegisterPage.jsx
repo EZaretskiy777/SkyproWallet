@@ -21,8 +21,6 @@ export const RegisterPage = () => {
     login: false,
     password: false,
   });
- 
- const [setError] = useState("");
 
   const { setIsAuth } = useAuth();
 
@@ -32,15 +30,14 @@ export const RegisterPage = () => {
     setInputValue({ ...inputValue, [name]: value });
   };
 
-  const registerHandler = (e) => {
-    e.preventDefault();
+  const registerHandler = async() => {
 
-    const { name, login, password } = inputValue; //пустые поля
-    if (!name || !login || !password) {
-      return setErrorMessage(
-        "Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку"
-      );
-    }
+   // const { name, login, password } = inputValue; //пустые поля
+   // if (!name || !login || !password) {
+    //  return setErrorMessage(
+      //  "Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку"
+     // );
+    //}
 
     register(inputValue)
       .then((response) => {
@@ -60,21 +57,21 @@ export const RegisterPage = () => {
 
     if (!inputValue.name.trim()) {
       newErrors.name = true;
-      setError();
       isValid = false;
     }
 
     if (!inputValue.login.trim()) {
-
       newErrors.login = true;
-      setError("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
       isValid = false;
     }
 
     if (!inputValue.password.trim()) {
       newErrors.password = true;
-      setError("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
       isValid = false;
+    }
+    
+    if(!isValid) {
+      setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
     }
 
     setErrors(newErrors);
@@ -83,9 +80,12 @@ export const RegisterPage = () => {
 
    const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) {
+    const isFormValid = validateForm()
+    if (!isFormValid) {
+      //console.log("форма не валидна")
       return;
-    }}
+    } registerHandler()
+  };
 
   return (
     <>
@@ -124,10 +124,8 @@ export const RegisterPage = () => {
                 />
                 {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
                 <Link to={routesPath.LOGIN}>
-                  <S.ModalBtnRegisterEnter $disabled={errorMessage === "" ? false : true}>
-                    <S.ModalBtnRegisterEnterA onClick={registerHandler}>
+                  <S.ModalBtnRegisterEnter disabled={errorMessage === "" ? false : true} type="submit">
                      Зарегистрироваться
-                    </S.ModalBtnRegisterEnterA>
                   </S.ModalBtnRegisterEnter>
               </Link>
               <S.ModalFormGroup>

@@ -98,9 +98,9 @@ export const ModalInput = styled.input`
   outline: none;
   padding: 10px 8px;
 
-  border-color: ${(props) =>
-    props.$error ? " rgba(242, 80, 80, 1)" : "rgba(153, 153, 153, 1)"};
-  
+ border-color: ${(props) =>
+    props.$error ? " rgba(242, 80, 80, 1)" : "rgba(148, 166, 190, 0.4)"};
+
 &::placeholder {
 font-family: Montserrat;
 vertical-align: middle;
@@ -113,11 +113,11 @@ vertical-align: middle;
 }
 `;
 
-export const ModalBtnEnter = styled.span`
+export const ModalBtnEnter = styled.button`
   width: 313px;
   height: 39px;
   //background: rgba(31, 164, 108, 1);
-  background-color: ${(props) => (props.$disabled ? "rgba(153, 153, 153, 1)" : " rgba(31, 164, 108, 1)")};
+  background-color: ${(props) => (props.disabled ? "rgba(153, 153, 153, 1)" : " rgba(31, 164, 108, 1)")};
   border-radius: 6px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -126,12 +126,15 @@ export const ModalBtnEnter = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  line-height: 21px;
-  font-weight: 500;
-  letter-spacing: -0.14px;
-  color: #ffffff;
-  pointer-events: ${(props) => (props.$disabled ? "none" : null)};
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  text-align: center;
+  vertical-align: middle;
+  color:rgba(255, 255, 255, 1);
+  pointer-events: ${(props) => (props.disabled ? "none" : null)};
 
   &:hover {
     background:rgba(153, 153, 153, 1);
@@ -139,18 +142,6 @@ export const ModalBtnEnter = styled.span`
   @media screen and (max-width: 379px) {
     height: 40px;
   }
-`;
-
-export const ModalBtnEnterA = styled(ModalBtnEnter)`
-font-family: Montserrat;
-font-weight: 600;
-font-size: 12px;
-line-height: 100%;
-letter-spacing: 0px;
-text-align: center;
-vertical-align: middle;
-color: rgba(255, 255, 255, 1);
-
 `;
 
 export const ModalFormGroup = styled.div`

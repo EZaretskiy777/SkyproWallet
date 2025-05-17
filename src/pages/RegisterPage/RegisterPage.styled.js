@@ -42,7 +42,6 @@ export const ModalBlock = styled.div`
 max-width: 379px;
 width: 100%;
 padding: 20px 40px;
-//height: 385px;
 top: 207px;
 left: 530px;
 border-radius: 30px;
@@ -115,11 +114,11 @@ vertical-align: middle;
 }
 `;
 
-export const ModalBtnRegisterEnter = styled.span`
+export const ModalBtnRegisterEnter = styled.button`
   width: 313px;
   height: 39px;
   //background: rgba(31, 164, 108, 1);
-  background-color: ${(props) => (props.$disabled ? "rgba(153, 153, 153, 1)" : " rgba(31, 164, 108, 1)")};
+  background-color: ${(props) => (props.disabled ? "rgba(153, 153, 153, 1)" : " rgba(31, 164, 108, 1)")};
   border-radius: 6px;
   margin-top: 25px;
   margin-bottom: 25px;
@@ -128,12 +127,15 @@ export const ModalBtnRegisterEnter = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  line-height: 21px;
-  font-weight: 500;
-  letter-spacing: -0.14px;
-  color: #ffffff;
-  pointer-events: ${(props) => (props.$disabled ? "none" : null)};
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  text-align: center;
+  vertical-align: middle;
+  color: rgba(255, 255, 255, 1);
+  pointer-events: ${(props) => (props.disabled ? "none" : null)};
 
   &:hover {
     background: rgba(153, 153, 153, 1);
@@ -143,24 +145,10 @@ export const ModalBtnRegisterEnter = styled.span`
   }
 `;
 
-export const Hover01 = styled(ModalBtnRegisterEnter)`
-  &:hover {
-    background: rgba(31, 164, 108, 1);
-  }
-`;
-
-export const ModalBtnRegisterEnterA = styled(ModalBtnRegisterEnter)`
-width: 134;
-height: 15;
-font-family: Montserrat;
-font-weight: 600;
-font-size: 12px;
-line-height: 100%;
-letter-spacing: 0px;
-text-align: center;
-vertical-align: middle;
-color: rgba(255, 255, 255, 1);
-`;
+//export const Hover01 = styled(ModalBtnRegisterEnter)`
+//  &:hover {
+//    background: rgba(31, 164, 108, 1);
+//  }`;
 
 export const ModalFormGroup = styled.div`
 width: 314;
