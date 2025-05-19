@@ -117,7 +117,6 @@ export const ModalBtnEnter = styled.button`
   width: 313px;
   height: 39px;
   //background: rgba(31, 164, 108, 1);
-  background-color: ${(props) => (props.disabled ? "rgba(153, 153, 153, 1)" : " rgba(31, 164, 108, 1)")};
   border-radius: 6px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -134,11 +133,16 @@ export const ModalBtnEnter = styled.button`
   text-align: center;
   vertical-align: middle;
   color:rgba(255, 255, 255, 1);
-  pointer-events: ${(props) => (props.disabled ? "none" : null)};
 
-  &:hover {
-    background:rgba(153, 153, 153, 1);
+  &:valid {
+    background-color: rgba(31, 164, 108, 1); /* Цвет кнопки при корректном вводе */
+    cursor: pointer;
   }
+ 
+  &:invalid{
+    background-color:rgba(153, 153, 153, 1); /* Цвет кнопки при некорректном вводе */
+  }
+
   @media screen and (max-width: 379px) {
     height: 40px;
   }

@@ -32,12 +32,11 @@ export const RegisterPage = () => {
 
   const registerHandler = async() => {
 
-   // const { name, login, password } = inputValue; //пустые поля
-   // if (!name || !login || !password) {
-    //  return setErrorMessage(
+    //const { name, login, password } = inputValue; //пустые поля
+    //if (!name || !login || !password) {
+     // return setErrorMessage(
       //  "Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку"
-     // );
-    //}
+      //);}
 
     register(inputValue)
       .then((response) => {
@@ -123,11 +122,11 @@ export const RegisterPage = () => {
                   placeholder="Пароль"
                 />
                 {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
-                <Link to={routesPath.LOGIN}>
-                  <S.ModalBtnRegisterEnter disabled={errorMessage === "" ? false : true} type="submit">
+                
+                  <S.ModalBtnRegisterEnter type="submit">
                      Зарегистрироваться
                   </S.ModalBtnRegisterEnter>
-              </Link>
+            
               <S.ModalFormGroup>
                 <S.ModalFormGroupAP>Уже есть аккаунт?</S.ModalFormGroupAP>
                 <Link to={routesPath.LOGIN}>

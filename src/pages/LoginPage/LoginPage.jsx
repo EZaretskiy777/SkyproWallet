@@ -106,7 +106,7 @@ export const LoginPage = () => {
                   placeholder="Пароль"
                 /> 
                {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
-                <S.ModalBtnEnter  disabled={errorMessage === "" ? false : true} type="submit">
+                <S.ModalBtnEnter type="submit">
                     Войти
               </S.ModalBtnEnter>
                 <S.ModalFormGroup>
