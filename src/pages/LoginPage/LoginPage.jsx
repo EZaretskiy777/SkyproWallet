@@ -48,11 +48,13 @@ export const LoginPage = () => {
     let isValid = true;
 
     if (!inputValue.login.trim()) {
+      document.getElementById("btncolor").style.background = "gray";
       newErrors.login = true;
       isValid = false;
     }
 
     if (!inputValue.password.trim()) {
+      document.getElementById("btncolor").style.background = "gray";
       newErrors.password = true;
       isValid = false;
     }
@@ -106,7 +108,7 @@ export const LoginPage = () => {
                   placeholder="Пароль"
                 /> 
                {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
-                <S.ModalBtnEnter type="submit">
+                <S.ModalBtnEnter id="btncolor" type="submit">
                     Войти
               </S.ModalBtnEnter>
                 <S.ModalFormGroup>

@@ -55,16 +55,19 @@ export const RegisterPage = () => {
     let isValid = true;
 
     if (!inputValue.name.trim()) {
+      document.getElementById("btncolor").style.background = "gray";
       newErrors.name = true;
       isValid = false;
     }
 
     if (!inputValue.login.trim()) {
+      document.getElementById("btncolor").style.background = "gray";
       newErrors.login = true;
       isValid = false;
     }
 
     if (!inputValue.password.trim()) {
+      document.getElementById("btncolor").style.background = "gray";
       newErrors.password = true;
       isValid = false;
     }
@@ -123,7 +126,7 @@ export const RegisterPage = () => {
                 />
                 {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
                 
-                  <S.ModalBtnRegisterEnter type="submit">
+                  <S.ModalBtnRegisterEnter id="btncolor" type="submit">
                      Зарегистрироваться
                   </S.ModalBtnRegisterEnter>
             

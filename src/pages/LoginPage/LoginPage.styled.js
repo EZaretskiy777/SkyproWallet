@@ -97,20 +97,19 @@ export const ModalInput = styled.input`
   vertical-align: middle;
   outline: none;
   padding: 10px 8px;
-
- border-color: ${(props) =>
-    props.$error ? " rgba(242, 80, 80, 1)" : "rgba(148, 166, 190, 0.4)"};
-
-&::placeholder {
-font-family: Montserrat;
-vertical-align: middle;
-}
-&:hover {
+  &:hover {
   background: #DBFFE9;
   color:rgb(0, 0, 0);
   border: 0.5px solid #1FA46C;
   background: rgba(219, 255, 233, 1);
 }
+
+  background-color: ${(props) =>
+    props.$error ? " rgba(255, 235, 235, 1)" : "rgba(255, 255, 255, 1)"};
+  
+  border-color: ${(props) =>
+    props.$error ? "rgba(242, 80, 80, 1)" : "border: 0.5px solid rgba(153, 153, 153, 1)"
+  };
 `;
 
 export const ModalBtnEnter = styled.button`
@@ -137,10 +136,6 @@ export const ModalBtnEnter = styled.button`
   &:valid {
     background-color: rgba(31, 164, 108, 1); /* Цвет кнопки при корректном вводе */
     cursor: pointer;
-  }
- 
-  &:invalid{
-    background-color:rgba(153, 153, 153, 1); /* Цвет кнопки при некорректном вводе */
   }
 
   @media screen and (max-width: 379px) {
