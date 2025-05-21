@@ -50,6 +50,9 @@ export const register = ({ name, login, password }) => {
     if (response.status === 500) {
       throw new Error("Ошибка сервера");
     }
+    if (response.status === 304) {
+      throw new Error("Пожалуйста, заполните все пустые поля");
+    }
     if (!response.ok) {
       throw new Error("Что то пошло не так");
     }
