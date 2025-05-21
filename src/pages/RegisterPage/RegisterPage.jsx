@@ -2,7 +2,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header.jsx";
 import * as S from "./RegisterPage.styled.js";
 import { routesPath } from "../../lib/routesPath.js";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { register } from "../../services/api/user.js";
 import { useAuth } from "../../providers/AuthProvider";
 
@@ -30,13 +30,12 @@ export const RegisterPage = () => {
     setInputValue({ ...inputValue, [name]: value });
   };
 
-  const registerHandler = async() => {
+    useEffect( () => {
+      setErrors({name: false, login: false, password: false})
+      setErrorMessage('')
+    }, [inputValue.name, inputValue.login, inputValue.password]);
 
-    //const { name, login, password } = inputValue; //пустые поля
-    //if (!name || !login || !password) {
-     // return setErrorMessage(
-      //  "Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку"
-      //);}
+  const registerHandler = async() => {
 
     register(inputValue)
       .then((response) => {
@@ -51,32 +50,29 @@ export const RegisterPage = () => {
   };
   
   const validateForm = () => {
-    const newErrors = { name: false, login: false, password: false };
+    //const newErrors = { name: false, login: false, password: false };
     let isValid = true;
 
     if (!inputValue.name.trim()) {
-      document.getElementById("btncolor").style.background = "gray";
-      newErrors.name = true;
+      setErrors((prev) => ({...prev, name: true}))
       isValid = false;
     }
 
     if (!inputValue.login.trim()) {
-      document.getElementById("btncolor").style.background = "gray";
-      newErrors.login = true;
+      setErrors((prev) => ({...prev, login: true}))
       isValid = false;
     }
 
     if (!inputValue.password.trim()) {
-      document.getElementById("btncolor").style.background = "gray";
-      newErrors.password = true;
+      setErrors((prev) => ({...prev, password: true}))
       isValid = false;
     }
     
-    if(!isValid) {
-      setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
-    }
+    //if(!isValid) {
+    //  setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
+    //}
 
-    setErrors(newErrors);
+    //setErrors(newErrors);
     return isValid;
   };
 
@@ -84,7 +80,8 @@ export const RegisterPage = () => {
     e.preventDefault();
     const isFormValid = validateForm()
     if (!isFormValid) {
-      //console.log("форма не валидна")
+      setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
+      console.log("форма не валидна")
       return;
     } registerHandler()
   };
@@ -126,7 +123,7 @@ export const RegisterPage = () => {
                 />
                 {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
                 
-                  <S.ModalBtnRegisterEnter id="btncolor" type="submit">
+                  <S.ModalBtnRegisterEnter disabled={!!errorMessage} type="submit">
                      Зарегистрироваться
                   </S.ModalBtnRegisterEnter>
             

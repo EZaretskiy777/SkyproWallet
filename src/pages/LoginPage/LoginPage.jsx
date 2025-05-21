@@ -2,7 +2,7 @@ import Header from "../../components/Header/Header.jsx";
 import { routesPath } from "../../lib/routesPath.js";
 import * as S from "./LoginPage.styled.js";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 //import PropTypes from "prop-types";
 import { loginAuth } from "../../services/api/user.js";
 import { useAuth } from "../../providers/AuthProvider";
@@ -28,6 +28,11 @@ export const LoginPage = () => {
     setInputValue({ ...inputValue, [name]: value });
   };
 
+  useEffect( () => {
+    setErrors({login: false, password: false})
+    setErrorMessage('')
+  }, [inputValue.login, inputValue.password]);
+
   const loginHandler = async() => {
 
     loginAuth(inputValue)
@@ -44,26 +49,27 @@ export const LoginPage = () => {
   };
 
   const validateForm = () => {
-    const newErrors = { login: false, password: false };
+    //const newErrors = { login: false, password: false };
     let isValid = true;
 
     if (!inputValue.login.trim()) {
-      document.getElementById("btncolor").style.background = "gray";
-      newErrors.login = true;
+      //document.getElementById("btncolor").style.background = "gray";
+      //newErrors.login = true;
+      setErrors((prev) => ({...prev, login: true}))
       isValid = false;
     }
 
     if (!inputValue.password.trim()) {
-      document.getElementById("btncolor").style.background = "gray";
-      newErrors.password = true;
+      //document.getElementById("btncolor").style.background = "gray";
+      //newErrors.password = true;
+      setErrors((prev) => ({...prev, password: true}))
       isValid = false;
     }
     
-    if(!isValid) {
-      setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
-    }
-
-    setErrors(newErrors);
+   // if(!isValid) {
+   //   setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку")}
+    //setErrors(newErrors);
+    
     return isValid;
   };
 
@@ -71,6 +77,7 @@ export const LoginPage = () => {
     e.preventDefault();
     const isFormValid = validateForm()
     if (!isFormValid) {
+      setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
       console.log("форма не валидна")
       return;
   } loginHandler()
@@ -108,7 +115,7 @@ export const LoginPage = () => {
                   placeholder="Пароль"
                 /> 
                {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
-                <S.ModalBtnEnter id="btncolor" type="submit">
+                <S.ModalBtnEnter disabled={!!errorMessage} type="submit">
                     Войти
               </S.ModalBtnEnter>
                 <S.ModalFormGroup>

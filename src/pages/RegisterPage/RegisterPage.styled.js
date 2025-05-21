@@ -98,18 +98,18 @@ export const ModalInput = styled.input`
   vertical-align: middle;
   outline: none;
   padding: 10px 8px;
-&:hover {
+
+  &:hover {
   background: #DBFFE9;
   color:rgb(0, 0, 0);
   border: 0.5px solid #1FA46C;
   background: rgba(219, 255, 233, 1);
-}
+  }
   background-color: ${(props) =>
     props.$error ? " rgba(255, 235, 235, 1)" : "rgba(255, 255, 255, 1)"};
   
   border-color: ${(props) =>
-    props.$error ? "rgba(242, 80, 80, 1)" : "border: 0.5px solid rgba(153, 153, 153, 1)"
-  };
+    props.$error ? "rgba(242, 80, 80, 1)" : "rgba(153, 153, 153, 1)"};
 `;
 
 export const ModalBtnRegisterEnter = styled.button`
@@ -134,28 +134,18 @@ export const ModalBtnRegisterEnter = styled.button`
   vertical-align: middle;
   color: rgba(255, 255, 255, 1);
 
-  &:valid {
-    background-color: rgba(31, 164, 108, 1); /* Цвет кнопки при корректном вводе */
-    cursor: pointer;
-  }
- 
-  &:invalid{
-    background-color:rgba(153, 153, 153, 1); /* Цвет кнопки при некорректном вводе */
-  }
+  background-color: ${(props) =>
+    props.disabled? "rgba(153, 153, 153, 1)" : "rgba(31, 164, 108, 1)"
+  };
 
   @media screen and (max-width: 379px) {
     height: 40px;
   }
 `;
 
-//export const Hover01 = styled(ModalBtnRegisterEnter)`
-//  &:hover {
-//    background: rgba(31, 164, 108, 1);
-//  }`;
-
 export const ModalFormGroup = styled.div`
 width: 314;
-height: 40.00001525878906;
+height: 40;
 gap: 4px;
 margin-bottom: 5px;
 `;
@@ -179,9 +169,9 @@ export const ModalFormGroupA = styled(ModalFormGroupAP)`
 `;
 
 export const ErrorP = styled.p`
-width: 312px;
-height: 36px;
-  margin-top: 7px;
+  width: 312px;
+  height: 36px;
+  margin-top: 10px;
   font-family: Montserrat;
   font-weight: 400;
   font-size: 12px;

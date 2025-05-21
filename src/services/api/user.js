@@ -45,7 +45,7 @@ export const register = ({ name, login, password }) => {
     }),
   }).then((response) => {
     if (response.status === 400) {
-      throw new Error("Упс! Такой пользователь уже существует. Введите данные корректно и повторите попытку");
+      throw new Error("Такой пользователь уже существует. Введите данные корректно и повторите попытку");
     }
     if (response.status === 500) {
       throw new Error("Ошибка сервера");
@@ -67,7 +67,7 @@ export const loginAuth = ({ login, password }) => {
     }),
   }).then((response) => {
     if (response.status === 400) {
-      throw new Error("Упс! Неверный логин или пароль. Введите данные корректно и повторите попытку");
+      throw new Error("Неверный логин или пароль. Введите данные корректно и повторите попытку");
     }
     if (response.status === 500) {
       throw new Error("Ошибка сервера");
