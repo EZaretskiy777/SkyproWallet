@@ -39,26 +39,49 @@ gap: 24px;
 align-items: center;
 `;
 
-export const SelectWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-`;
 
 export const Select = styled.div`
 display: flex;
-flex-direction: row;
+flex-direction: column;
+align-items: flex-end;
 `;
 
-export const SelectName = styled.p`
+export const SelectName = styled.div`
 font-family: Montserrat;
 font-weight: 400;
 font-size: 12px;
 margin: 0px;
+text-wrap: nowrap;  
+height: 18px;
+display: flex;
+align-items: baseline;
+gap: 8px;
+
+span:nth-child(2) {
+    color: #1FA46C;
+    font-weight: 600;
+    line-height: 150%;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    max-width: 100px;
+    overflow-x: clip;
+    text-overflow: ellipsis;
+}
 `;
 
-export const SelectElement = styled.select`
-border: 0px;
-padding: 0px;
+export const SelectButtons = styled.div`
+border-radius: 6px;
+border-width: 0.5px;
+padding: 12px;
+display: flex; 
+flex-direction: column;
+align-items: flex-start;
+gap: 6px;
+background: #FFFFFF;
+border: 0.5px solid #999999;
+position: absolute;
+translate: 0 24px;
+box-shadow: 0px 20px 67px -12px #00000021;
 `;
 
 export const TitleBox = styled.div`
@@ -66,7 +89,7 @@ display: flex;
 flex-direction: row;
 gap: 32px;
 padding-left: 32px;
-padding-bottom: 7px;
+padding-bottom: 7px;    
 `;
 
 export const ColumnTitleS = styled.p`
@@ -166,9 +189,9 @@ height: 28px;
 &:hover p {
   color: #1FA46C;
 }
-&:hover img {
-    content: url("cart-2.svg"); 
-}
+&:hover svg path {
+    fill: #1FA46C;
+  }
 `;
 
 export const ColumnSpace = styled.p`
@@ -241,15 +264,7 @@ gap: 12px;
 `;
 
 export const Redaction = styled.div`
-img {
-width: 12px;
-height: 12px;
-}
 `;
 
 export const Cart = styled.div`
-img {
-    width: 12px;
-height: 12px;
-}
 `;

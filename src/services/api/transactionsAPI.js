@@ -5,9 +5,23 @@ const TransactionsAPI = {
   API_URL_TRANSACTIONS: "https://wedev-api.sky.pro/api/transactions",
   NEXTJS_API_URL: "http://localhost:3000/api/proxy/transactions",
 
-  async readAll({ token }) {
+  async readAll({ token, sorting, filters }) {
+    let uri = this.API_URL_TRANSACTIONS
+
+    if (sorting || filters && filters.length) {
+      const parts = []
+
+      if (sorting)
+        parts.push(`sortBy=${sorting}`)
+
+      if (filters && filters.length)
+        parts.push(`filterBy=${filters.join(",")}`)
+
+      uri = `${uri}?${parts.join("&")}`
+    }
+
     try {
-      const data = await axios.get(this.API_URL_TRANSACTIONS, {
+      const data = await axios.get(uri, {
         headers: {
           authorization: `Bearer ${token}`.replaceAll('"', ""),
         },
