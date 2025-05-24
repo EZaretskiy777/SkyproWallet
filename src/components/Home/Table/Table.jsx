@@ -1,20 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
-  Cart,
-  ColumnBox,
-  ColumnBoxEl,
-  ColumnDate,
-  ColumnElements,
-  ColumnPrice,
-  ColumnProduct,
-  ColumnSpace,
-  ColumnTitle,
+  ColumnTitleC,
+  ColumnTitleD,
+  ColumnTitleP,
+  ColumnTitleS,
   Line,
-  Redaction,
+  Scroll,
   Select,
-  SelectElement,
+  SelectButtons,
   SelectName,
-  SelectWrapper,
   STable,
   TableContent,
   TableItem,
@@ -22,321 +16,145 @@ import {
   TableNav,
   TitleBox,
 } from "./Table.styled";
+import TransactionsAPI from "../../../services/api/transactionsAPI";
+import { getUserToken } from "../../../utils/utils";
+import { TableRow } from "./TableRow/TableRow";
+import { CategoryButton } from "../../UX/CategoryButton";
+import { FilterLine } from "../../UX/FilterLine";
+
+const filterKeys = ["food", "transport", "housing", "joy", "education", "others"]
+
+const filterNames = {
+  food: "Еда",
+  transport: "Транспорт",
+  housing: "Жилье",
+  joy: "Развлечения",
+  education: "Образование",
+  others: "Другое",
+}
+
+const sortingKeys = ["date", "sum"]
+
+const sortingNames = {
+  date: "Дате",
+  sum: "Сумме",
+}
 
 export function Table() {
-  return (
-    <STable>
+  const [transactions, setTransactions] = useState([]);
+  const [filterValues] = useState({
+    food: false,
+    transport: false,
+    housing: false,
+    joy: false,
+    education: false,
+    others: false,
+  });
+  const [filters, setFilters] = useState("");
+  const [sorting, setSorting] = useState("");
+  const [openedMenu, setOpenedMenu] = useState("");
+
+  useEffect(() => {
+    const token = getUserToken();
+
+    TransactionsAPI.readAll({
+      token,
+      sorting,
+      filters: filterKeys.reduce((acc, key) => {
+        if (filterValues[key])
+          acc.push(key)
+        return acc
+      }, []),
+    }).then((data) => {
+      setTransactions(data)
+    });
+  }, [sorting, filters, filterValues]);
+
+  function onClickCategory(event) {
+    let element = event.target
+
+    if (element.localName !== "button")
+      element = element.closest("button")
+
+    const type = element.dataset.type
+
+    filterValues[type] = !filterValues[type]
+
+    let values = []
+
+    for (const key of filterKeys) {
+      if (filterValues[key]) 
+        values.push(filterNames[key])
+    }
+
+    setFilters(values.join(", "))
+  }
+
+  function onClickSortOption(event) {
+    let element = event.target
+
+    if (element.localName !== "button")
+      element = element.closest("button")
+
+    const type = element.dataset.type
+
+    if (sorting !== type)
+      setSorting(type)
+    else
+      setSorting("")
+
+    setTimeout(() => setOpenedMenu(""), 300)
+  }
+
+return (
+  <>
+    <STable onClick={() => setOpenedMenu("")}>
       <TableItem>
         <TableName>Таблица расходов</TableName>
         <TableNav>
-          <SelectWrapper>
-            <Select>
-              <SelectName>Фильтровать по категории</SelectName>
-              <SelectElement />
-            </Select>
-          </SelectWrapper>
-          <SelectWrapper>
-            <Select>
-              <SelectName>Сортировать по дате</SelectName>
-              <SelectElement />
-            </Select>
-          </SelectWrapper>
+          <FilterLine
+          name={"filter"} 
+          title={"Фильтровать по категории"} 
+          selectedText={filters.toLowerCase()} 
+          isOpened={openedMenu === "filter"} 
+          setOpened={setOpenedMenu}>
+            {
+              filterKeys.map((key) => ( 
+                <CategoryButton key={key} type={key} title={filterNames[key]} isActive={filterValues[key]} onClick={onClickCategory} />
+              ))
+            }
+          </FilterLine>
+          <FilterLine 
+          name={"sorting"} 
+          title={"Сортировать по"}
+          selectedText={sortingNames[sorting]?.toLowerCase()} 
+          isOpened={openedMenu === "sorting"} 
+          setOpened={setOpenedMenu}>
+            {
+              sortingKeys.map((key) => ( 
+                <CategoryButton key={key} type={key} title={sortingNames[key]} isActive={sorting === key} onClick={onClickSortOption} />
+              ))
+            }
+          </FilterLine>
         </TableNav>
       </TableItem>
       <TitleBox>
-        <ColumnTitle>Описание</ColumnTitle>
-        <ColumnTitle>Категория</ColumnTitle>
-        <ColumnTitle>Дата</ColumnTitle>
-        <ColumnTitle>Сумма</ColumnTitle>
+        <ColumnTitleS>Описание</ColumnTitleS>
+        <ColumnTitleC>Категория</ColumnTitleC>
+        <ColumnTitleD>Дата</ColumnTitleD>
+        <ColumnTitleP>Сумма</ColumnTitleP>
       </TitleBox>
       <Line />
-      <TableContent>
-        <ColumnBox>
-          <ColumnSpace>Пятерочка</ColumnSpace>
-          <ColumnSpace>Яндекс Такси</ColumnSpace>
-          <ColumnSpace>Аптека Вита</ColumnSpace>
-          <ColumnSpace>Бургер Кинг</ColumnSpace>
-          <ColumnSpace>Деливери</ColumnSpace>
-          <ColumnSpace>Кофейня №1</ColumnSpace>
-          <ColumnSpace>Бильярд</ColumnSpace>
-          <ColumnSpace>Перекресток</ColumnSpace>
-          <ColumnSpace>Лукойл</ColumnSpace>
-          <ColumnSpace>Летуаль</ColumnSpace>
-          <ColumnSpace>Яндекс Такси</ColumnSpace>
-          <ColumnSpace>Перекресток</ColumnSpace>
-          <ColumnSpace>Деливери</ColumnSpace>
-          <ColumnSpace>Вкусвилл</ColumnSpace>
-          <ColumnSpace>Кофейня №1</ColumnSpace>
-          <ColumnSpace>Вкусвилл</ColumnSpace>
-          <ColumnSpace>Кофейня №1</ColumnSpace>
-        </ColumnBox>
-
-        <ColumnBox>
-          <ColumnProduct>Еда</ColumnProduct>
-          <ColumnProduct>Транспорт</ColumnProduct>
-          <ColumnProduct>Другое</ColumnProduct>
-          <ColumnProduct>Еда</ColumnProduct>
-          <ColumnProduct>Еда</ColumnProduct>
-          <ColumnProduct>Еда</ColumnProduct>
-          <ColumnProduct>Развлечения</ColumnProduct>
-          <ColumnProduct>Еда</ColumnProduct>
-          <ColumnProduct>Транспорт</ColumnProduct>
-          <ColumnProduct>Другое</ColumnProduct>
-          <ColumnProduct>Транспорт</ColumnProduct>
-          <ColumnProduct>Еда</ColumnProduct>
-          <ColumnProduct>Еда</ColumnProduct>
-          <ColumnProduct>Еда</ColumnProduct>
-          <ColumnProduct>Еда</ColumnProduct>
-          <ColumnProduct>Еда</ColumnProduct>
-          <ColumnProduct>Еда</ColumnProduct>
-        </ColumnBox>
-
-        <ColumnBox>
-          <ColumnDate>03.07.2024</ColumnDate>
-          <ColumnDate>03.07.2024</ColumnDate>
-          <ColumnDate>03.07.2024</ColumnDate>
-          <ColumnDate>03.07.2024</ColumnDate>
-          <ColumnDate>02.07.2024</ColumnDate>
-          <ColumnDate>02.07.2024</ColumnDate>
-          <ColumnDate>29.06.2024</ColumnDate>
-          <ColumnDate>29.06.2024</ColumnDate>
-          <ColumnDate>29.06.2024</ColumnDate>
-          <ColumnDate>29.06.2024</ColumnDate>
-          <ColumnDate>28.06.2024</ColumnDate>
-          <ColumnDate>28.06.2024</ColumnDate>
-          <ColumnDate>28.06.2024</ColumnDate>
-          <ColumnDate>27.06.2024</ColumnDate>
-          <ColumnDate>27.06.2024</ColumnDate>
-          <ColumnDate>26.06.2024</ColumnDate>
-          <ColumnDate>26.06.2024</ColumnDate>
-        </ColumnBox>
-
-        <ColumnBox>
-          <ColumnPrice>3 500 ₽</ColumnPrice>
-          <ColumnPrice>730 ₽</ColumnPrice>
-          <ColumnPrice>1 200 ₽</ColumnPrice>
-          <ColumnPrice>950 ₽</ColumnPrice>
-          <ColumnPrice>1 320 ₽</ColumnPrice>
-          <ColumnPrice>400 ₽</ColumnPrice>
-          <ColumnPrice>600 ₽</ColumnPrice>
-          <ColumnPrice>2 360 ₽</ColumnPrice>
-          <ColumnPrice>1 000 ₽</ColumnPrice>
-          <ColumnPrice>4 300 ₽</ColumnPrice>
-          <ColumnPrice>320 ₽</ColumnPrice>
-          <ColumnPrice>1 360 ₽</ColumnPrice>
-          <ColumnPrice>2 320 ₽</ColumnPrice>
-          <ColumnPrice>1 220 ₽</ColumnPrice>
-          <ColumnPrice>920 ₽</ColumnPrice>
-          <ColumnPrice>840 ₽</ColumnPrice>
-          <ColumnPrice>920 ₽</ColumnPrice>
-        </ColumnBox>
-        <ColumnBoxEl>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-          <ColumnElements>
-            <Redaction>
-              <a href="" target="">
-                <img src="redaction.svg" alt="redaction"></img>
-              </a>
-            </Redaction>
-            <Cart>
-              <a href="" target="">
-                <img src="cart.svg" alt="cart"></img>
-              </a>
-            </Cart>
-          </ColumnElements>
-        </ColumnBoxEl>
-      </TableContent>
-    </STable>
-  );
+      <Scroll>
+        <TableContent>
+          {
+            transactions.map((item) => (
+              <TableRow key={item._id} id={item._id} {...item} />
+            ))
+          }
+        </TableContent>
+      </Scroll>
+    </STable >
+  </>
+);
 }

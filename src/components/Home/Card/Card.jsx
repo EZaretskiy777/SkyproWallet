@@ -1,7 +1,7 @@
 import React from "react";
 import {
   ButtonNewContent,
-  ButtonProduct,
+  CardBox,
   CardContainer,
   CardTitle,
   InputDate,
@@ -9,11 +9,8 @@ import {
   InputSpace,
   ProductBox,
   SCard,
-  TitleDate,
-  TitlePrice,
-  TitleProduct,
-  TitleSpace,
 } from "./Card.styled";
+import { CategoryButton } from "../../UX/CategoryButton";
 
 export function Card() {
   return (
@@ -21,42 +18,31 @@ export function Card() {
       <CardContainer>
         <CardTitle>Новый расход</CardTitle>
 
-        <TitleSpace>Описание</TitleSpace>
-        <InputSpace placeholder="Введите описание"></InputSpace>
+        <CardBox>
+          Описание
+          <InputSpace placeholder="Введите описание"></InputSpace>
+        </CardBox>
+        
+        <CardBox>
+          Категория
+          <ProductBox>
+            <CategoryButton type={"food"} title={"Еда"} />
+            <CategoryButton type={"transport"} title={"Транспорт"} />
+            <CategoryButton type={"housing"} title={"Жилье"} />
+            <CategoryButton type={"joy"} title={"Развлечения"} />
+            <CategoryButton type={"education"} title={"Образование"} />
+            <CategoryButton type={"others"} title={"Другое"} />
+          </ProductBox>
+        </CardBox>
 
-        <TitleProduct>Категория</TitleProduct>
-        <ProductBox>
-          <ButtonProduct>
-            <img src="bag.svg" alt="bag" />
-            <p>Еда</p>
-          </ButtonProduct>
-          <ButtonProduct>
-            <img src="car.svg" alt="car" />
-            <p>Транспорт</p>
-          </ButtonProduct>
-          <ButtonProduct>
-            <img src="house.svg" alt="house" />
-            <p>Жилье</p>
-          </ButtonProduct>
-          <ButtonProduct>
-            <img src="gameboy.svg" alt="gameboy" />
-            <p>Развлечения</p>
-          </ButtonProduct>
-          <ButtonProduct>
-            <img src="teacher.svg" alt="teacher" />
-            <p>Образование</p>
-          </ButtonProduct>
-          <ButtonProduct>
-            <img src="message-text.svg" alt="message-text" />
-            <p>Другое</p>
-          </ButtonProduct>
-        </ProductBox>
-
-        <TitleDate>Дата</TitleDate>
-        <InputDate placeholder="Введите дату"></InputDate>
-
-        <TitlePrice>Сумма</TitlePrice>
-        <InputPrice placeholder="Введите сумму"></InputPrice>
+        <CardBox>
+          Сумма
+          <InputPrice placeholder="Введите сумму"></InputPrice>
+        </CardBox>
+        <CardBox>
+          Дата
+          <InputDate placeholder="Введите дату"></InputDate>
+        </CardBox>
 
         <ButtonNewContent>
           <p>Добавить новый расход</p>

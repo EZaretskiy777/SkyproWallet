@@ -5,32 +5,33 @@ width: 379px;
 height: 618px;
 border-radius: 30px;
 background: #FFFFFF;
+box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 `;
 
 export const CardContainer = styled.div`
 padding: 32px;
 display: flex;
 flex-direction: column;
-gap: 20px;
+gap: 24px;
 `;
 
 export const CardTitle = styled.h2`
 font-family: Montserrat;
 font-weight: 700;
 font-size: 24px;
-line-height: 100%;
-letter-spacing: 0px;
 vertical-align: middle;
-margin: 0px;
 `;
 
-export const TitleSpace = styled.p`
+export const CardBox = styled.div`
 font-family: Montserrat;
 font-weight: 600;
 font-size: 16px;
 line-height: 100%;
 letter-spacing: 0px;
 margin: 0px;
+display: flex;
+flex-direction: column;
+gap: 16px;
 `;
 
 export const InputSpace = styled.input`
@@ -62,15 +63,6 @@ color: #999999;
 }
 `;
 
-export const TitleProduct = styled.p`
-font-family: Montserrat;
-font-weight: 600;
-font-size: 16px;
-line-height: 100%;
-letter-spacing: 0px;
-margin: 0px;
-`;
-
 export const ProductBox = styled.div`
 display: flex;
 flex-wrap: wrap;
@@ -78,7 +70,6 @@ gap: 6px;
 `;
 
 export const ButtonProduct = styled.button`
-margin-top: 8px;
 max-width: 152px;
 height: 31px;
 border-radius: 30px;
@@ -102,23 +93,16 @@ text-align: center;
 vertical-align: middle;
 margin: 0px;
 }
-img {
-  width: 14px;
-height: 14px;
-}
+
+&.active, 
 &:hover {
   background: #DBFFE9;
   color: #1FA46C;
+  
+  svg path {
+    fill: #1FA46C;
+  }
 }
-`;
-
-export const TitleDate = styled.p`
-font-family: Montserrat;
-font-weight: 600;
-font-size: 16px;
-line-height: 100%;
-letter-spacing: 0px;
-margin: 0px;
 `;
 
 export const InputDate = styled.input`
@@ -148,15 +132,6 @@ color: #999999;
   color:rgb(0, 0, 0);
   border: 0.5px solid #1FA46C;
 }
-`;
-
-export const TitlePrice = styled.p`
-font-family: Montserrat;
-font-weight: 600;
-font-size: 16px;
-line-height: 100%;
-letter-spacing: 0px;
-margin: 0px;
 `;
 
 export const InputPrice = styled.input`
