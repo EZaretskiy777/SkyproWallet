@@ -6,9 +6,6 @@ import {
   ColumnTitleS,
   Line,
   Scroll,
-  Select,
-  SelectButtons,
-  SelectName,
   STable,
   TableContent,
   TableItem,
@@ -23,14 +20,7 @@ import { CategoryButton } from "../../UX/CategoryButton";
 import { FilterLine } from "../../UX/FilterLine";
 import { useTransactions } from "../../../providers/TransactionsProvider";
 
-const filterKeys = [
-  "food",
-  "transport",
-  "housing",
-  "joy",
-  "education",
-  "others",
-];
+const filterKeys = ["food", "transport", "housing", "joy", "education", "others"];
 
 const filterNames = {
   food: "Еда",
@@ -69,7 +59,9 @@ export function Table({ currentRow, setCurrentRow }) {
       token,
       sorting,
       filters: filterKeys.reduce((acc, key) => {
-        if (filterValues[key]) acc.push(key);
+        if (filterValues[key])
+          acc.push(key);
+
         return acc;
       }, []),
     }).then((data) => {
@@ -78,22 +70,24 @@ export function Table({ currentRow, setCurrentRow }) {
   }, [sorting, filters, filterValues]);
 
   function onClickCategory(type) {
-    console.log("type", type);
-
     filterValues[type] = !filterValues[type];
 
     let values = [];
 
     for (const key of filterKeys) {
-      if (filterValues[key]) values.push(filterNames[key]);
+      if (filterValues[key])
+        values.push(filterNames[key]);
     }
 
     setFilters(values.join(", "));
   }
 
   function onClickSortOption(type) {
-    if (sorting !== type) setSorting(type);
-    else setSorting("");
+    if (sorting !== type)
+      setSorting(type);
+    else
+      setSorting("");
+
     setTimeout(() => setOpenedMenu(""), 300);
   }
 
@@ -103,39 +97,25 @@ export function Table({ currentRow, setCurrentRow }) {
         <TableItem>
           <TableName>Таблица расходов</TableName>
           <TableNav>
-            <FilterLine
-              name={"filter"}
-              title={"Фильтровать по категории"}
-              selectedText={filters.toLowerCase()}
-              isOpened={openedMenu === "filter"}
-              setOpened={setOpenedMenu}
-            >
-              {filterKeys.map((key) => (
-                <CategoryButton
-                  key={key}
-                  type={key}
-                  title={filterNames[key]}
-                  isActive={filterValues[key]}
-                  onClick={() => onClickCategory(key)}
-                />
-              ))}
+            <FilterLine name={"filter"} title={"Фильтровать по категории"}
+                        selectedText={filters.toLowerCase()}
+                        isOpened={openedMenu === "filter"} setOpened={setOpenedMenu}>
+              {
+                filterKeys.map((key) => ( 
+                  <CategoryButton key={key} type={key} title={filterNames[key]}
+                                  isActive={filterValues[key]} onClick={() => onClickCategory(key)} />
+                ))
+              }
             </FilterLine>
-            <FilterLine
-              name={"sorting"}
-              title={"Сортировать по"}
-              selectedText={sortingNames[sorting]?.toLowerCase()}
-              isOpened={openedMenu === "sorting"}
-              setOpened={setOpenedMenu}
-            >
-              {sortingKeys.map((key) => (
-                <CategoryButton
-                  key={key}
-                  type={key}
-                  title={sortingNames[key]}
-                  isActive={sorting === key}
-                  onClick={() => onClickSortOption(key)}
-                />
-              ))}
+            <FilterLine name={"sorting"} title={"Сортировать по"}
+                        selectedText={sortingNames[sorting]?.toLowerCase()} 
+                        isOpened={openedMenu === "sorting"} setOpened={setOpenedMenu}>
+              {
+                sortingKeys.map((key) => ( 
+                  <CategoryButton key={key} type={key} title={sortingNames[key]}
+                                  isActive={sorting === key} onClick={() => onClickSortOption(key)} />
+                ))
+              }
             </FilterLine>
           </TableNav>
         </TableItem>
@@ -148,15 +128,12 @@ export function Table({ currentRow, setCurrentRow }) {
         <Line />
         <Scroll>
           <TableContent>
-            {transactions.map((item) => (
-              <TableRow
-                currentRow={currentRow === item._id}
-                key={item._id}
-                setCurrentRow={setCurrentRow}
-                id={item._id}
-                {...item}
-              />
-            ))}
+            {
+              transactions.map((item) => (
+                <TableRow key={item._id} id={item._id} {...item}
+                          currentRow={currentRow === item._id} setCurrentRow={setCurrentRow} />
+              ))
+            }
           </TableContent>
         </Scroll>
       </STable>

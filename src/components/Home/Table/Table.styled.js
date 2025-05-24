@@ -6,7 +6,7 @@ export const STable = styled.div`
   top: 180px;
   left: 118px;
   border-radius: 30px;
-  background: #ffffff;
+  background: #fff;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 `;
 
@@ -75,8 +75,8 @@ export const SelectButtons = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 6px;
-  background: #ffffff;
-  border: 0.5px solid #999999;
+  background: #fff;
+  border: 0.5px solid #999;
   position: absolute;
   translate: 0 24px;
   box-shadow: 0px 20px 67px -12px #00000021;
@@ -91,7 +91,7 @@ export const TitleBox = styled.div`
 `;
 
 export const ColumnTitleS = styled.p`
-  color: #999999;
+  color: #999;
   font-family: Montserrat;
   font-weight: 400;
   font-size: 12px;
@@ -102,8 +102,9 @@ export const ColumnTitleS = styled.p`
   width: 141px;
   height: 15px;
 `;
+
 export const ColumnTitleC = styled.p`
-  color: #999999;
+  color: #999;
   font-family: Montserrat;
   font-weight: 400;
   font-size: 12px;
@@ -114,8 +115,9 @@ export const ColumnTitleC = styled.p`
   width: 141px;
   height: 15px;
 `;
+
 export const ColumnTitleD = styled.p`
-  color: #999999;
+  color: #999;
   font-family: Montserrat;
   font-weight: 400;
   font-size: 12px;
@@ -126,8 +128,9 @@ export const ColumnTitleD = styled.p`
   width: 142px;
   height: 15px;
 `;
+
 export const ColumnTitleP = styled.p`
-  color: #999999;
+  color: #999;
   font-family: Montserrat;
   font-weight: 400;
   font-size: 12px;
@@ -143,7 +146,7 @@ export const Line = styled.hr`
   width: 789;
   top: 114px;
   border-width: 0.5px;
-  color: #999999;
+  color: #999;
   margin: 0px;
 `;
 
@@ -158,7 +161,7 @@ export const Scroll = styled.div`
   }
 
   &::-webkit-scrollbar-track {
-    background: #ffffff;
+    background: #fff;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -238,7 +241,7 @@ export const ColumnPrice = styled.p`
   line-height: 100%;
   letter-spacing: 0px;
   vertical-align: middle;
-  color: #000000;
+  color: #000;
   margin: 0px;
   width: 134px;
   height: 15px;
@@ -250,7 +253,7 @@ export const ColumnPrice = styled.p`
 
 export const STableRow = styled.div`
   background-color: ${(props) =>
-    props.$currentRow ? "#DBFFE9" : "transparent"};
+    props.$currentRow ? "#dbffe9" : "transparent"};
   & div:nth-child(4) p::after {
     content: "₽";
   }
@@ -266,4 +269,5 @@ export const Redaction = styled.div`
   cursor: pointer;
 `;
 
-export const Cart = styled.div``;
+export const Cart = styled.div`
+`;

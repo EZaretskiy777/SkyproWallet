@@ -12,6 +12,7 @@ import { CardTypeProvider } from "../../providers/CardTypeProvider";
 
 export function Home() {
   const [currentRow, setCurrentRow] = useState(null);
+
   return (
     <SHome>
       <HomeContainer>
