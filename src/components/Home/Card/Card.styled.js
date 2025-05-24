@@ -1,185 +1,188 @@
 import styled from "styled-components";
 
 export const SCard = styled.div`
-width: 379px;
-height: 618px;
-border-radius: 30px;
-background: #FFFFFF;
-box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  width: 379px;
+  height: 618px;
+  border-radius: 30px;
+  background: #ffffff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 `;
 
-export const CardContainer = styled.div`
-padding: 32px;
-display: flex;
-flex-direction: column;
-gap: 24px;
+export const CardContainer = styled.form`
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 `;
 
 export const CardTitle = styled.h2`
-font-family: Montserrat;
-font-weight: 700;
-font-size: 24px;
-vertical-align: middle;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 24px;
+  vertical-align: middle;
 `;
 
 export const CardBox = styled.div`
-font-family: Montserrat;
-font-weight: 600;
-font-size: 16px;
-line-height: 100%;
-letter-spacing: 0px;
-margin: 0px;
-display: flex;
-flex-direction: column;
-gap: 16px;
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 `;
 
 export const InputSpace = styled.input`
-border-radius: 6px;
-gap: 12px;
-border-width: 0.5px;
-padding: 12px;
-border: 0.5px solid #999999;
-font-family: Montserrat;
-font-weight: 400;
-font-size: 12px;
-line-height: 100%;
-letter-spacing: 0px;
-vertical-align: middle;
+  border-radius: 6px;
+  gap: 12px;
+  border-width: 0.5px;
+  padding: 12px;
+  border: 0.5px solid #999999;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  vertical-align: middle;
 
-&::placeholder {
-font-family: Montserrat;
-font-weight: 400;
-font-size: 12px;
-line-height: 100%;
-letter-spacing: 0px;
-vertical-align: middle;
-color: #999999;
-}
-&:hover {
-  background: #DBFFE9;
-  color:rgb(0, 0, 0);
-  border: 0.5px solid #1FA46C;
-}
+  &::placeholder {
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    color: #999999;
+  }
+  &:hover {
+    background: #dbffe9;
+    color: rgb(0, 0, 0);
+    border: 0.5px solid #1fa46c;
+  }
 `;
 
 export const ProductBox = styled.div`
-display: flex;
-flex-wrap: wrap;
-gap: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 `;
 
-export const ButtonProduct = styled.button`
-max-width: 152px;
-height: 31px;
-border-radius: 30px;
-padding-top: 8px;
-padding-right: 20px;
-padding-bottom: 8px;
-padding-left: 20px;
-background: #F4F5F6;
-border: 0px;
-display: flex;
-flex-direction: row;
-align-items: center;
-gap: 12px;
-p {
-font-family: Montserrat;
-font-weight: 400;
-font-size: 12px;
-line-height: 100%;
-letter-spacing: 0%;
-text-align: center;
-vertical-align: middle;
-margin: 0px;
-}
-
-&.active, 
-&:hover {
-  background: #DBFFE9;
-  color: #1FA46C;
-  
-  svg path {
-    fill: #1FA46C;
+export const ButtonProduct = styled.div`
+  max-width: 152px;
+  height: 31px;
+  border-radius: 30px;
+  padding-top: 8px;
+  padding-right: 20px;
+  padding-bottom: 8px;
+  padding-left: 20px;
+  background: #f4f5f6;
+  border: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  p {
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0px;
   }
-}
+
+  &.active,
+  &:hover {
+    background: #dbffe9;
+    color: #1fa46c;
+
+    svg path {
+      fill: #1fa46c;
+    }
+  }
 `;
 
 export const InputDate = styled.input`
-border-radius: 6px;
-gap: 12px;
-border-width: 0.5px;
-padding: 12px;
-border: 0.5px solid #999999;
-font-family: Montserrat;
-font-weight: 400;
-font-size: 12px;
-line-height: 100%;
-letter-spacing: 0px;
-vertical-align: middle;
-
-&::placeholder {
-font-family: Montserrat;
-font-weight: 400;
-font-size: 12px;
-line-height: 100%;
-letter-spacing: 0px;
-vertical-align: middle;
-color: #999999;
-}
-&:hover {
-  background: #DBFFE9;
-  color:rgb(0, 0, 0);
-  border: 0.5px solid #1FA46C;
-}
+  border-radius: 6px;
+  gap: 12px;
+  border-width: 0.5px;
+  padding: 12px;
+  border: 0.5px solid #999999;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  &::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+  }
+  &::placeholder {
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    color: #999999;
+  }
+  &:hover {
+    background: #dbffe9;
+    color: rgb(0, 0, 0);
+    border: 0.5px solid #1fa46c;
+  }
 `;
 
 export const InputPrice = styled.input`
-border-radius: 6px;
-gap: 12px;
-border-width: 0.5px;
-padding: 12px;
-border: 0.5px solid #999999;
-font-family: Montserrat;
-font-weight: 400;
-font-size: 12px;
-line-height: 100%;
-letter-spacing: 0px;
-vertical-align: middle;
+  border-radius: 6px;
+  gap: 12px;
+  border-width: 0.5px;
+  padding: 12px;
+  border: 0.5px solid #999999;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  vertical-align: middle;
 
-&::placeholder {
-font-family: Montserrat;
-font-weight: 400;
-font-size: 12px;
-line-height: 100%;
-letter-spacing: 0px;
-vertical-align: middle;
-color: #999999;
-}
-&:hover {
-  background: #DBFFE9;
-  color:rgb(0, 0, 0);
-  border: 0.5px solid #1FA46C;
-}
+  &::placeholder {
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    color: #999999;
+  }
+  &:hover {
+    background: #dbffe9;
+    color: rgb(0, 0, 0);
+    border: 0.5px solid #1fa46c;
+  }
 `;
 
 export const ButtonNewContent = styled.button`
-width: 313px;
-height: 39px;
-border-radius: 6px;
-gap: 12px;
-padding: 12px;
-background: #1FA46C;
-border: 0px;
+  width: 313px;
+  height: 39px;
+  border-radius: 6px;
+  gap: 12px;
+  padding: 12px;
+  background: #1fa46c;
+  border: 0px;
 
-p {
-font-family: Montserrat;
-font-weight: 600;
-font-size: 12px;
-line-height: 100%;
-letter-spacing: 0px;
-text-align: center;
-color: #FFFFFF;
-margin: 0px;
-}
+  p {
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #ffffff;
+    margin: 0px;
+  }
 `;

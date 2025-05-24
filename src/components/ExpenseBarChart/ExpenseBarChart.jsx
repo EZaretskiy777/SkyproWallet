@@ -10,7 +10,7 @@ import {
   Cell,
 } from "recharts";
 import { useTransactions } from "../../providers/TransactionsProvider";
-import { categoryTypes, categoryTypeColors } from "../../../enums";
+import { categoryTypes, categoryTypeColors } from "../../lib/enums";
 
 const ExpenseBarChart = ({ selectedRange }) => {
   const { transactions } = useTransactions();
