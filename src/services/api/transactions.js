@@ -40,7 +40,7 @@ export async function addTransactions({ token, transaction }) {
       },
     });
 
-    return data.data;
+    return data.data.transactions;
   } catch (error) {
     console.error(error);
     throw new Error(error.message);
@@ -49,7 +49,7 @@ export async function addTransactions({ token, transaction }) {
 
 export async function deleteTransactions({ token, id }) {
   try {
-    const data = await axios.post(API_URL_TRANSACTIONS + "/" + id, {
+    const data = await axios.delete(API_URL_TRANSACTIONS + "/" + id, {
       headers: {
         authorization: `Bearer ${token}`.replaceAll('"', ""),
         "Content-Type": "",
