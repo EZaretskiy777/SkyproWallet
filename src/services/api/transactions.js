@@ -62,3 +62,23 @@ export async function deleteTransactions({ token, id }) {
     throw new Error(error.message);
   }
 }
+
+export async function editTransactions({ token, transaction, id }) {
+  try {
+    const data = await axios.patch(
+      API_URL_TRANSACTIONS + "/" + id,
+      transaction,
+      {
+        headers: {
+          authorization: `Bearer ${token}`.replaceAll('"', ""),
+          "Content-Type": "",
+        },
+      }
+    );
+
+    return data.data.transactions;
+  } catch (error) {
+    console.error(error);
+    throw new Error(error.message);
+  }
+}
