@@ -112,11 +112,9 @@ export const RegisterPage = () => {
                   placeholder="Пароль"
                 />
                 {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
-                
                   <S.ModalBtnRegisterEnter disabled={!!errorMessage} type="submit">
                      Зарегистрироваться
                   </S.ModalBtnRegisterEnter>
-            
               <S.ModalFormGroup>
                 <S.ModalFormGroupAP>Уже есть аккаунт?</S.ModalFormGroupAP>
                 <Link to={routesPath.LOGIN}>

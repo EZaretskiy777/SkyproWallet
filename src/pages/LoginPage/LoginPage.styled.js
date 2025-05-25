@@ -16,13 +16,6 @@ export const BodyLogin = styled.body`
   color: #000000;
 `;
 
-//export const ContainerLogin = styled.div`
-//  display: block;
-////  width: 100vw;
-//  min-height: 100vh;
-//  margin: 0 auto;
-//`;
-
 export const Modal = styled.div`
   width: 100%;
   height: 100%;
@@ -42,7 +35,6 @@ export const ModalBlock = styled.div`
 max-width: 379px;
 width: 100%;
 padding: 20px 40px;
-//height: 334px;
 top: 233px;
 left: 530px;
 border-radius: 30px;
@@ -60,7 +52,6 @@ box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
 `;
 
 export const ModalTtl = styled.div`
-//gap: 10px;
 font-family: Montserrat;
 font-weight: 700;
 font-size: 20px;
@@ -87,8 +78,7 @@ export const ModalInput = styled.input`
   height: 39px;
   border-radius: 6px;
   border: 0.5px solid rgba(153, 153, 153, 1);
-  gap: 12px;
-  //padding: 12px;
+  //gap: 12px;
   font-family: Montserrat;
   font-weight: 400;
   font-size: 12px;
@@ -97,7 +87,6 @@ export const ModalInput = styled.input`
   vertical-align: middle;
   outline: none;
   padding: 10px 8px;
-
   &:hover {
   background: #DBFFE9;
   color:rgb(0, 0, 0);
@@ -110,12 +99,15 @@ export const ModalInput = styled.input`
   
   border-color: ${(props) =>
     props.$error ? "rgba(242, 80, 80, 1)" : "rgba(153, 153, 153, 1)"};
+  
+  &::after {
+    content: "*";
+  }
 `;
 
 export const ModalBtnEnter = styled.button`
   width: 313px;
   height: 39px;
-  //background: rgba(31, 164, 108, 1);
   border-radius: 6px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -156,12 +148,11 @@ letter-spacing: 0px;
 text-align: center;
 vertical-align: middle;
 color: rgba(153, 153, 153, 1);
-  //line-height: 150%;
-  //letter-spacing: -0.14px;
 `;
 
 export const ModalFormGroupA = styled(ModalFormGroupAP)`
   text-decoration: underline;
+  //margin-bottom: 20px;
 `;
 
 export const ErrorP = styled.p`
