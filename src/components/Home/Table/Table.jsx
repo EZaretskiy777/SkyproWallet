@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   ColumnTitleC,
   ColumnTitleD,
@@ -52,9 +52,7 @@ export function Table({ currentRow, setCurrentRow }) {
   const [sorting, setSorting] = useState("");
   const [openedMenu, setOpenedMenu] = useState("");
 
-  useEffect(() => {
-    const token = getUserToken();
-
+  const readRecords = useCallback((token) => {
     TransactionsAPI.readAll({
       token,
       sorting,
@@ -67,6 +65,12 @@ export function Table({ currentRow, setCurrentRow }) {
     }).then((data) => {
       setTransactions(data);
     });
+  }, [sorting, filters, filterValues])
+
+  useEffect(() => {
+    const token = getUserToken();
+
+    readRecords(token);
   }, [sorting, filters, filterValues]);
 
   function onClickCategory(type) {
@@ -131,6 +135,7 @@ export function Table({ currentRow, setCurrentRow }) {
             {
               transactions.map((item) => (
                 <TableRow key={item._id} id={item._id} {...item}
+                          readRecords={readRecords}
                           currentRow={currentRow === item._id} setCurrentRow={setCurrentRow} />
               ))
             }

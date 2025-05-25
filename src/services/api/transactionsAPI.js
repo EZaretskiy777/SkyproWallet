@@ -75,7 +75,7 @@ const TransactionsAPI = {
 
   async deleteOne({ token, id }) {
     try {
-      const data = await axios.post(this.API_URL_TRANSACTIONS + "/" + id, {
+      const data = await axios.delete(this.API_URL_TRANSACTIONS + "/" + id, {
         headers: {
           authorization: `Bearer ${token}`.replaceAll('"', ""),
           "Content-Type": "",
