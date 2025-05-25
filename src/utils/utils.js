@@ -17,4 +17,16 @@ export const dateFormat = (inputDate) => {
   }
 };
 
+export const dateFormatRus = (inputDate) => {
+  if (!inputDate) return "";
+
+  const date = new Date(inputDate);
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  return `${String(day).length === 1 ? "0" + day : day}.${
+    String(month).length === 1 ? "0" + month : month
+  }.${year}`;
+};
+
 export const isAuth = () => (localStorage.getItem("userInfo") ? true : false);

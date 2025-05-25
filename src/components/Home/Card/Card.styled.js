@@ -31,7 +31,6 @@ export const CardBox = styled.div`
   margin: 0px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
 `;
 
 export const InputSpace = styled.input`
@@ -39,13 +38,25 @@ export const InputSpace = styled.input`
   gap: 12px;
   border-width: 0.5px;
   padding: 12px;
-  border: 0.5px solid #999;
+  border: 0.5px solid;
   font-family: Montserrat;
   font-weight: 400;
   font-size: 12px;
   line-height: 100%;
   letter-spacing: 0px;
   vertical-align: middle;
+  background: ${(props) =>
+    props.$status === "error"
+      ? "rgba(255, 235, 235, 1)"
+      : props.$status === "filled"
+      ? "#dbffe9"
+      : "#fff"};
+  border-color: ${(props) =>
+    props.$status === "error"
+      ? "red"
+      : props.$status === "filled"
+      ? "rgba(31, 164, 108, 1)"
+      : "rgba(153, 153, 153, 1)"};
 
   &::placeholder {
     font-family: Montserrat;
@@ -55,11 +66,6 @@ export const InputSpace = styled.input`
     letter-spacing: 0px;
     vertical-align: middle;
     color: #999;
-  }
-  &:hover {
-    background: #dbffe9;
-    color: rgb(0, 0, 0);
-    border: 0.5px solid #1fa46c;
   }
 `;
 
@@ -111,13 +117,25 @@ export const InputDate = styled.input`
   gap: 12px;
   border-width: 0.5px;
   padding: 12px;
-  border: 0.5px solid #999;
+  border: 0.5px solid;
   font-family: Montserrat;
   font-weight: 400;
   font-size: 12px;
   line-height: 100%;
   letter-spacing: 0px;
   vertical-align: middle;
+  background: ${(props) =>
+    props.$status === "error"
+      ? "rgba(255, 235, 235, 1)"
+      : props.$status === "filled"
+      ? "#dbffe9"
+      : "#fff"};
+  border-color: ${(props) =>
+    props.$status === "error"
+      ? "red"
+      : props.$status === "filled"
+      ? "rgba(31, 164, 108, 1)"
+      : "rgba(153, 153, 153, 1)"};
   &::-webkit-calendar-picker-indicator {
     cursor: pointer;
   }
@@ -130,11 +148,11 @@ export const InputDate = styled.input`
     vertical-align: middle;
     color: #999;
   }
-  &:hover {
-    background: #dbffe9;
-    color: rgb(0, 0, 0);
-    border: 0.5px solid #1fa46c;
-  }
+  // &:hover {
+  //   background: #dbffe9;
+  //   color: rgb(0, 0, 0);
+  //   border: 0.5px solid #1fa46c;
+  // }
 `;
 
 export const InputPrice = styled.input`
@@ -149,6 +167,18 @@ export const InputPrice = styled.input`
   line-height: 100%;
   letter-spacing: 0px;
   vertical-align: middle;
+  background: ${(props) =>
+    props.$status === "error"
+      ? "rgba(255, 235, 235, 1)"
+      : props.$status === "filled"
+      ? "#dbffe9"
+      : "#fff"};
+  border-color: ${(props) =>
+    props.$status === "error"
+      ? "red"
+      : props.$status === "filled"
+      ? "rgba(31, 164, 108, 1)"
+      : "rgba(153, 153, 153, 1)"};
 
   &::placeholder {
     font-family: Montserrat;
@@ -159,11 +189,11 @@ export const InputPrice = styled.input`
     vertical-align: middle;
     color: #999;
   }
-  &:hover {
-    background: #dbffe9;
-    color: rgb(0, 0, 0);
-    border: 0.5px solid #1fa46c;
-  }
+  // &:hover {
+  //   background: #dbffe9;
+  //   color: rgb(0, 0, 0);
+  //   border: 0.5px solid #1fa46c;
+  // }
 `;
 
 export const ButtonNewContent = styled.button`
@@ -185,4 +215,23 @@ export const ButtonNewContent = styled.button`
     color: #fff;
     margin: 0px;
   }
+
+  &:disabled {
+    background: rgba(153, 153, 153, 1);
+  }
+`;
+
+export const InputNameBlock = styled.div`
+  margin-bottom: 16px;
+`;
+
+export const ErrorFieldSpan = styled.div`
+  color: red;
+  font-size: 10px;
+  margin: 0px;
+  paddint: 0px;
+`;
+
+export const ErrorSpan = styled.span`
+  color: red;
 `;

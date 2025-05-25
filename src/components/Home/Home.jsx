@@ -21,7 +21,7 @@ export function Home() {
           <HomeContent>
             <CardTypeProvider>
               <Table currentRow={currentRow} setCurrentRow={setCurrentRow} />
-              <Card currentRow={currentRow} />
+              <Card currentRow={currentRow} setCurrentRow={setCurrentRow} />
             </CardTypeProvider>
           </HomeContent>
         </HomeBlock>

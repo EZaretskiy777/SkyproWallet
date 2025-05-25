@@ -270,4 +270,5 @@ export const Redaction = styled.div`
 `;
 
 export const Cart = styled.div`
+  cursor: pointer;
 `;
