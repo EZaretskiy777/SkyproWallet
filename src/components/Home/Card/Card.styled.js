@@ -4,7 +4,7 @@ export const SCard = styled.div`
   width: 379px;
   height: 618px;
   border-radius: 30px;
-  background: #ffffff;
+  background: #fff;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 `;
 
@@ -39,7 +39,7 @@ export const InputSpace = styled.input`
   gap: 12px;
   border-width: 0.5px;
   padding: 12px;
-  border: 0.5px solid #999999;
+  border: 0.5px solid #999;
   font-family: Montserrat;
   font-weight: 400;
   font-size: 12px;
@@ -54,7 +54,7 @@ export const InputSpace = styled.input`
     line-height: 100%;
     letter-spacing: 0px;
     vertical-align: middle;
-    color: #999999;
+    color: #999;
   }
   &:hover {
     background: #dbffe9;
@@ -111,7 +111,7 @@ export const InputDate = styled.input`
   gap: 12px;
   border-width: 0.5px;
   padding: 12px;
-  border: 0.5px solid #999999;
+  border: 0.5px solid #999;
   font-family: Montserrat;
   font-weight: 400;
   font-size: 12px;
@@ -128,7 +128,7 @@ export const InputDate = styled.input`
     line-height: 100%;
     letter-spacing: 0px;
     vertical-align: middle;
-    color: #999999;
+    color: #999;
   }
   &:hover {
     background: #dbffe9;
@@ -142,7 +142,7 @@ export const InputPrice = styled.input`
   gap: 12px;
   border-width: 0.5px;
   padding: 12px;
-  border: 0.5px solid #999999;
+  border: 0.5px solid #999;
   font-family: Montserrat;
   font-weight: 400;
   font-size: 12px;
@@ -157,7 +157,7 @@ export const InputPrice = styled.input`
     line-height: 100%;
     letter-spacing: 0px;
     vertical-align: middle;
-    color: #999999;
+    color: #999;
   }
   &:hover {
     background: #dbffe9;
@@ -182,7 +182,7 @@ export const ButtonNewContent = styled.button`
     line-height: 100%;
     letter-spacing: 0px;
     text-align: center;
-    color: #ffffff;
+    color: #fff;
     margin: 0px;
   }
 `;
