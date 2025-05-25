@@ -90,7 +90,6 @@ export const LoginPage = () => {
                   $error={errors.login}
                   type="text"
                   name="login"
-                  //id="formlogin"
                   placeholder="Эл. почта"
                 />
                  <S.ModalInput
@@ -100,7 +99,6 @@ export const LoginPage = () => {
                   $error={errors.password}
                   type="password"
                   name="password"
-                  //id="formpassword"
                   placeholder="Пароль"
                 /> 
                {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
