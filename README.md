@@ -1,12 +1,19 @@
-# React + Vite
+ПРОЕКТ 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SkyproWallet 
+Сервис для анализа и отслеживания расходов. 
 
-Currently, two official plugins are available:
+Инструкцию по установке и запуску проекта: 
+1. npm i
+2. npm run dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Возможность удаления, изменения и добавления расходов.
 
-## Expanding the ESLint configuration
+Основные технологии:
+- хуки React: useState, useContext, useEffect и тд
+- React - router, date-fns, framer-motion, react-calendar, react-date-range, react-day-picker, react-dom, react-router, react-router-dom, recharts, styled-components 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Участники команды
+- Колойтанова Ангелина — автор страниц логина и авторизации и работы с API
+- Зарецкий Евгений — разработка страницы анализ расходов и работы с API
+- Мангура Юлия — разработка страницы мои расходы и работы с API
