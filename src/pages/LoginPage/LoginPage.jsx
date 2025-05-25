@@ -3,7 +3,6 @@ import { routesPath } from "../../lib/routesPath.js";
 import * as S from "./LoginPage.styled.js";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-//import PropTypes from "prop-types";
 import { loginAuth } from "../../services/api/user.js";
 import { useAuth } from "../../providers/AuthProvider";
 
@@ -40,7 +39,6 @@ export const LoginPage = () => {
         localStorage.setItem("userInfo", JSON.stringify(response));
         setIsAuth(true);
         setErrorMessage("");
-        // setIsAuth(true);
         navigate(routesPath.MAIN);
       })
       .catch((err) => {
@@ -49,26 +47,17 @@ export const LoginPage = () => {
   };
 
   const validateForm = () => {
-    //const newErrors = { login: false, password: false };
     let isValid = true;
 
     if (!inputValue.login.trim()) {
-      //document.getElementById("btncolor").style.background = "gray";
-      //newErrors.login = true;
       setErrors((prev) => ({...prev, login: true}))
       isValid = false;
     }
 
     if (!inputValue.password.trim()) {
-      //document.getElementById("btncolor").style.background = "gray";
-      //newErrors.password = true;
       setErrors((prev) => ({...prev, password: true}))
       isValid = false;
     }
-    
-   // if(!isValid) {
-   //   setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку")}
-    //setErrors(newErrors);
     
     return isValid;
   };
@@ -135,7 +124,3 @@ export const LoginPage = () => {
     </>
   );
 };
-
-//LoginPage.propTypes = {
-//  isSignUp: PropTypes.bool.isRequired,
-//};

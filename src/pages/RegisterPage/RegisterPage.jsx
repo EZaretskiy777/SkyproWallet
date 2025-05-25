@@ -25,8 +25,7 @@ export const RegisterPage = () => {
   const { setIsAuth } = useAuth();
 
   const onChangeInput = (e) => {
-    const { value, name } = e.target; //;
-
+    const { value, name } = e.target;
     setInputValue({ ...inputValue, [name]: value });
   };
 
@@ -50,7 +49,6 @@ export const RegisterPage = () => {
   };
   
   const validateForm = () => {
-    //const newErrors = { name: false, login: false, password: false };
     let isValid = true;
 
     if (!inputValue.name.trim()) {
@@ -67,12 +65,7 @@ export const RegisterPage = () => {
       setErrors((prev) => ({...prev, password: true}))
       isValid = false;
     }
-    
-    //if(!isValid) {
-    //  setErrorMessage("Упс! Введенные вами данные некорректны. Введите данные корректно и повторите попытку");
-    //}
 
-    //setErrors(newErrors);
     return isValid;
   };
 
@@ -102,7 +95,6 @@ export const RegisterPage = () => {
                  $error={errors.name}
                   type="text"
                   name="name"
-                  //id="first-name"
                   placeholder="Имя"
                 />
                 <S.ModalInput
@@ -110,7 +102,6 @@ export const RegisterPage = () => {
                  $error={errors.login}
                   type="text"
                   name="login"
-                  //id="loginReg"
                   placeholder="Эл. почта"
                 />
                 <S.ModalInput
@@ -118,7 +109,6 @@ export const RegisterPage = () => {
                  $error={errors.password}
                   type="password"
                   name="password"
-                  //id="passwordFirst"
                   placeholder="Пароль"
                 />
                 {errorMessage && <S.ErrorP>{errorMessage}</S.ErrorP>}
