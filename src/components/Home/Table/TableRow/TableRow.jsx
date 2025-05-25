@@ -15,7 +15,6 @@ import { categoryTypes } from "../../../../lib/enums";
 import { useCardType } from "../../../../providers/CardTypeProvider";
 import TransactionsAPI from "../../../../services/api/transactionsAPI";
 import { getUserToken } from "../../../../utils/utils";
-import { data } from "react-router";
 
 export function TableRow({ id, description, category, date, sum, readRecords, currentRow, setCurrentRow }) {
   const { changeCardType } = useCardType();
@@ -32,7 +31,12 @@ export function TableRow({ id, description, category, date, sum, readRecords, cu
     const token = getUserToken();
 
     TransactionsAPI.deleteOne({ token, id })
-      .then(() => readRecords(token));
+      .then((data) => {
+        if (data.error)
+          alert(data.text);
+
+        readRecords(token);
+      });
   }
 
   const handlerNullCurrentRow = () => {

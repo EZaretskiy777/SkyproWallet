@@ -43,6 +43,7 @@ const TransactionsAPI = {
   async readAllByPeriod({ token, start, end }) {
     try {
       const response = await axios.get(`${this.NEXTJS_API_URL}/period`, {
+        validateStatus: (status) => status < 300,
         headers: {
           authorization: `Bearer ${token}`.replaceAll('"', ""),
           "Content-Type": "",
@@ -60,6 +61,7 @@ const TransactionsAPI = {
   async createOne({ token, transaction }) {
     try {
       const data = await axios.post(this.API_URL_TRANSACTIONS, transaction, {
+        validateStatus: (status) => status < 300,
         headers: {
           authorization: `Bearer ${token}`.replaceAll('"', ""),
           "Content-Type": "",
@@ -75,7 +77,8 @@ const TransactionsAPI = {
 
   async deleteOne({ token, id }) {
     try {
-      const data = await axios.delete(this.API_URL_TRANSACTIONS + "/" + id, {
+      const data = await axios.delete(`${this.API_URL_TRANSACTIONS}/${id}`, {
+        validateStatus: (status) => status < 300,
         headers: {
           authorization: `Bearer ${token}`.replaceAll('"', ""),
           "Content-Type": "",
@@ -84,12 +87,14 @@ const TransactionsAPI = {
 
       return data.data;
     } catch (error) {
-      console.error(error);
-      throw new Error(error.message);
+      if (error.response.status === 400)
+        return { error: true, text: `Транзакция ${id} не существует в базе данных.` };
+      else {
+        console.error(error);
+        throw new Error(error.message);
+      }
     }
   },
 }
-
-
 
 export default TransactionsAPI;
